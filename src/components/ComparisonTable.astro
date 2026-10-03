@@ -16,9 +16,14 @@
       </p>
     </div>
 
-    <!-- Responsive Table -->
-    <div class="overflow-x-auto border border-[#ebebeb] rounded-xl shadow-2xs bg-white">
-      <table class="w-full text-left text-xs sm:text-sm">
+      <!-- Mobile Scroll Indicator -->
+      <div class="sm:hidden text-[10px] text-[#8f8f8f] font-mono mb-2 flex items-center gap-1">
+        <span>↔ Swipe horizontally to compare columns</span>
+      </div>
+
+      <!-- Responsive Table -->
+      <div class="overflow-x-auto border border-[#ebebeb] rounded-xl shadow-2xs bg-white -mx-1 sm:mx-0">
+        <table class="w-full text-left text-xs sm:text-sm min-w-[560px]">
         <thead>
           <tr class="bg-[#fafafa] border-b border-[#ebebeb] font-mono text-xs text-[#171717]">
             <th class="py-4 px-4 sm:px-6 font-semibold w-1/4">Parameter</th>
