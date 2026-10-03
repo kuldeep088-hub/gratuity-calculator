@@ -1,131 +1,125 @@
 ---
 // FaqSection.astro
+// SEO-friendly FAQ component with schema.org FAQPage JSON-LD
+
+interface FAQ {
+  question: string;
+  answerHtml: string;
+  plainAnswer: string;
+}
+
+const faqs: FAQ[] = [
+  {
+    question: "Can I receive gratuity if I worked for 4 years and 240 days?",
+    answerHtml: `<p><strong>Yes, in most cases.</strong> Under Section 2A of the Payment of Gratuity Act, 1972, if an employee completes 240 working days in the 5th year of service (or 190 days in a 5-day work week / mining establishment), that 5th year legally counts as a full year of continuous service.</p><p class="mt-2 text-xs text-[#8f8f8f]">This legal principle has been upheld by the Madras High Court in <em>Mettur Beardsell Ltd.</em> and the Supreme Court of India in <em>Surendra Kumar Verma v. Central Govt. Industrial Tribunal</em>.</p>`,
+    plainAnswer: "Yes, in most cases. Under Section 2A of the Payment of Gratuity Act 1972, if an employee completes 240 working days in the 5th year of service (or 190 days in a 5-day work week establishment), that year legally counts as a full year of continuous service, qualifying the employee for gratuity."
+  },
+  {
+    question: "What is the formula to calculate gratuity in India?",
+    answerHtml: `<p>The calculation formula depends on whether your organization is covered under the Payment of Gratuity Act:</p><ul class="list-disc pl-5 mt-2 space-y-1 font-mono text-xs"><li><strong>Covered Employees:</strong> Gratuity = (15 × Last Drawn Salary × Years of Service) ÷ 26</li><li><strong>Non-Covered Employees:</strong> Gratuity = (15 × 10-month Average Salary × Completed Years) ÷ 30</li></ul><p class="mt-2">Salary consists strictly of <strong>Basic Pay + Dearness Allowance (DA)</strong>.</p>`,
+    plainAnswer: "For employees covered under the Act: Gratuity = (15 × Last Drawn Salary × Years) ÷ 26. For employees not covered under the Act: Gratuity = (15 × 10-month Average Salary × Completed Years) ÷ 30. Salary includes Basic Pay and Dearness Allowance only."
+  },
+  {
+    question: "Is gratuity taxable, and what is the Section 10(10) tax exemption limit?",
+    answerHtml: `<p>Under Section 10(10) of the Income Tax Act, 1961, the <strong>least</strong> of the following 3 amounts is completely exempt from income tax for private sector employees:</p><ol class="list-decimal pl-5 mt-2 space-y-1 text-xs"><li>Actual gratuity amount received.</li><li>Statutory maximum limit of <strong>₹20,00,000 (₹20 Lakhs)</strong>.</li><li>Eligible gratuity calculated via the statutory formula.</li></ol><p class="mt-2">For Central and State Government employees, gratuity is 100% tax-free up to ₹25 Lakhs. Note that the ₹20 Lakh ceiling is a cumulative lifetime limit across all employers.</p>`,
+    plainAnswer: "Under Section 10(10) of the Income Tax Act, the least of three amounts is tax-exempt for private employees: (1) Actual gratuity received, (2) Statutory ceiling of Rs. 20,00,000, or (3) The formula-calculated gratuity. For Government employees, gratuity is 100% tax-free up to Rs. 25 Lakhs."
+  },
+  {
+    question: "Does the notice period count towards the 5 years continuous service requirement?",
+    answerHtml: `<p><strong>Yes.</strong> Your continuous period of employment is calculated from your official date of joining up to your <strong>Last Working Day (LWD)</strong>, inclusive of the served notice period or approved paid leave on the company payroll. However, if notice pay is bought out and the employee is released early without being on payroll, only the days actually served are counted.</p>`,
+    plainAnswer: "Yes. Your tenure is counted from your joining date up to your Last Working Day (LWD), including the notice period served on the employer's payroll."
+  },
+  {
+    question: "What is the difference between covered and not covered under the Gratuity Act?",
+    answerHtml: `<p>Establishments with <strong>10 or more employees</strong> on any day in the preceding 12 months are legally covered under the Act. In covered organizations, 26 working days are used in the divisor, and tenure exceeding 6 months rounds up to the next full year. In non-covered establishments, 30 days are used (half-month average salary), and only completed full years are counted without rounding.</p>`,
+    plainAnswer: "Establishments with 10+ employees are covered under the Gratuity Act, using 26 working days and rounding service over 6 months to a full year. Non-covered organizations use 30 days and count only completed years without fractional rounding."
+  },
+  {
+    question: "Can an employer delay, withhold, or forfeit gratuity payment?",
+    answerHtml: `<p>Under Section 7(3), the employer must pay gratuity within <strong>30 days</strong> of it becoming payable. If delayed, Section 7(3A) mandates simple interest (currently 10% per annum) for every day of delay.</p><p class="mt-2">Under Section 4(6), gratuity can only be forfeited if the employee was formally terminated for willful omission/damage causing financial loss (forfeited only up to the extent of actual loss), or for riotous/violent conduct or moral turpitude.</p>`,
+    plainAnswer: "Under Section 7(3), employers must pay gratuity within 30 days; delays attract 10% annual simple interest. Gratuity can only be forfeited under Section 4(6) for formal termination due to riotous conduct, moral turpitude, or proven financial damage."
+  },
+  {
+    question: "Is gratuity calculated on gross CTC or Basic salary?",
+    answerHtml: `<p>Gratuity is calculated <strong>only on Basic Salary + Dearness Allowance (DA)</strong>. Components such as House Rent Allowance (HRA), Special Allowance, Performance Bonus, LTA, and employer PF contributions are statutory exclusions and are not included in the gratuity wage definition.</p>`,
+    plainAnswer: "Gratuity is calculated strictly on Basic Salary plus Dearness Allowance (DA). HRA, special allowances, and performance bonuses are excluded."
+  },
+  {
+    question: "Can an employer pay more than the ₹20 Lakh statutory ceiling?",
+    answerHtml: `<p><strong>Yes.</strong> Section 4(5) clarifies that an employee has the right to receive higher gratuity if agreed under an award, contract, or company policy. Any amount paid above ₹20 Lakhs is treated as an <em>ex-gratia</em> payment, and the excess portion is taxable according to your applicable income tax slab.</p>`,
+    plainAnswer: "Yes. An employer can pay higher gratuity under contract or company policy. Any amount received beyond the Rs. 20 Lakh statutory limit is treated as taxable ex-gratia income."
+  }
+];
+
+// Schema.org FAQPage structured data
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.plainAnswer
+    }
+  }))
+};
 ---
 
-<section id="faqs" class="w-full py-12 md:py-16 bg-white border-t border-[#ebebeb]">
+<section id="faqs" class="w-full py-14 sm:py-20 bg-white border-t border-[#ebebeb]">
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
     
-    <div class="text-center max-w-2xl mx-auto mb-12">
-      <div class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase text-[#8f8f8f] tracking-wider mb-2">
-        <span>KNOWLEDGE BASE &amp; LEGAL PRECEDENTS</span>
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+      <div class="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase text-[#8f8f8f] tracking-wider mb-2.5">
+        <span>LEGAL PRECEDENTS &amp; COMPLIANCE</span>
       </div>
-      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-[#171717]">
+      <h2 class="text-2xl sm:text-4xl font-semibold tracking-[-0.03em] text-[#171717] leading-tight">
         Frequently Asked Questions
       </h2>
-      <p class="text-sm text-[#4d4d4d] mt-2">
-        Everything you need to know about the Payment of Gratuity Act, taxation, notice periods, and judicial exceptions.
+      <p class="text-xs sm:text-sm text-[#666] mt-2.5 leading-relaxed">
+        Everything you need to know about the Payment of Gratuity Act 1972, Section 10(10) tax exemptions, and court rulings.
       </p>
     </div>
 
     <!-- FAQ Accordion List -->
-    <div class="space-y-4">
-      
-      <!-- FAQ 1: 4 years 240 days rule -->
-      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
-        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
-          <span>Can I get gratuity if I worked for 4 years and 240 days?</span>
-          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
-          <p>
-            <strong>Yes, in most cases.</strong> Section 2A of the Payment of Gratuity Act defines "continuous service". In the 5th year of service, if an employee works for at least <strong>240 days</strong> in an establishment with a 6-day work week (or <strong>190 days</strong> in a 5-day work week / underground mine), that 5th year is legally deemed a full completed year of continuous service.
-          </p>
-          <p class="text-xs text-[#8f8f8f]">
-            This principle has been reinforced in major rulings including <em>Surendra Kumar Verma v. Central Govt. Industrial Tribunal</em> and the Madras High Court judgment in <em>Mettur Beardsell Ltd.</em>
-          </p>
-        </div>
-      </details>
-
-      <!-- FAQ 2: Notice period included? -->
-      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
-        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
-          <span>Does the notice period count towards the 5 years eligibility?</span>
-          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
-          <p>
-            <strong>Yes.</strong> Your period of employment is calculated from your official date of joining up to your <strong>Last Working Day (LWD)</strong>, inclusive of the served notice period or approved leaves on the payroll. However, if an employee buys out their notice period and is released early, only the days actually served on payroll are counted.
-          </p>
-        </div>
-      </details>
-
-      <!-- FAQ 3: 15/26 formula explanation -->
-      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
-        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
-          <span>Why does the formula divide by 26 instead of 30?</span>
-          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
-          <p>
-            Under Section 4(2) of the Act, a month is calculated as having <strong>26 working days</strong>, deducting 4 weekly off-days (Sundays). Thus:
-          </p>
-          <ul class="list-disc pl-5 space-y-1 font-mono text-xs">
-            <li>Daily Wage = Monthly Basic + DA ÷ 26</li>
-            <li>15 Days' Wages = (Monthly Basic + DA ÷ 26) × 15</li>
-            <li>Total Gratuity = 15 Days' Wages × Years of Service</li>
-          </ul>
-        </div>
-      </details>
-
-      <!-- FAQ 4: Employer delay in payment -->
-      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
-        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
-          <span>What if an employer delays payment beyond 30 days?</span>
-          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
-          <p>
-            Under Section 7(3) of the Act, the employer must arrange to pay the amount of gratuity within <strong>30 days</strong> from the date it becomes payable. Under Section 7(3A), if the employer fails to pay within this period, they are legally liable to pay <strong>simple interest</strong> (currently 10% per annum) for every day of delay, unless the delay was caused solely by the employee's fault.
-          </p>
-        </div>
-      </details>
-
-      <!-- FAQ 5: Can gratuity be forfeited or withheld? -->
-      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
-        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
-          <span>Can an employer forfeit or withhold my gratuity?</span>
-          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
-          <p>
-            <strong>Only under very narrow statutory exceptions.</strong> Section 4(6) permits forfeiture only if an employee's services were terminated due to:
-          </p>
-          <ul class="list-disc pl-5 space-y-1 text-xs">
-            <li>Willful omission or negligence causing monetary loss or damage to property (forfeited only to the extent of actual loss caused).</li>
-            <li>Riotous, disorderly conduct or any act of violence.</li>
-            <li>An offense involving moral turpitude committed during employment.</li>
-          </ul>
-          <p class="text-xs text-[#8f8f8f]">
-            Gratuity cannot be withheld arbitrarily, nor can it be withheld for performance or general disputes without a formal domestic inquiry and termination order.
-          </p>
-        </div>
-      </details>
-
-      <!-- FAQ 6: What if salary exceeds ₹20 Lakhs statutory limit? -->
-      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
-        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
-          <span>Can an employer pay more than ₹20 Lakhs as gratuity?</span>
-          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
-          <p>
-            <strong>Yes.</strong> Section 4(5) states that nothing in the Act shall affect the right of an employee to receive higher gratuity under an award, contract, or employer agreement. Any amount paid above the ₹20 Lakh statutory ceiling is treated as an <em>ex-gratia</em> payment and the excess is taxable according to your normal income tax bracket.
-          </p>
-        </div>
-      </details>
-
+    <div class="space-y-3.5">
+      {faqs.map((faq, index) => (
+        <details
+          class="group border border-[#ebebeb] rounded-2xl p-5 bg-[#fafafa] open:bg-white open:shadow-xs transition-all duration-200"
+        >
+          <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
+            <span class="flex items-center gap-3">
+              <span class="font-mono text-xs text-[#8f8f8f] shrink-0 font-normal">
+                {String(index + 1).padStart(2, '0')}.
+              </span>
+              <span>{faq.question}</span>
+            </span>
+            <div class="w-6 h-6 rounded-full bg-white border border-[#ebebeb] flex items-center justify-center shrink-0 ml-3 group-open:bg-[#171717] group-open:border-[#171717] transition-colors">
+              <svg
+                class="w-3.5 h-3.5 text-[#8f8f8f] group-open:text-white group-open:rotate-180 transition-transform"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </summary>
+          <div
+            class="pt-3.5 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3.5 pl-7"
+            set:html={faq.answerHtml}
+          />
+        </details>
+      ))}
     </div>
+
   </div>
 </section>
+
+<!-- SEO Rich Snippet JSON-LD Script for Google Search -->
+<script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
