@@ -66,36 +66,36 @@ const faqSchema = {
 };
 ---
 
-<section id="faqs" class="w-full py-14 sm:py-20 bg-white border-t border-[#ebebeb]">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+<section id="faqs" class="w-full py-12 sm:py-20 bg-white border-t border-[#ebebeb]">
+  <div class="max-w-4xl mx-auto px-3.5 sm:px-6">
     
     <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
-      <div class="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase text-[#8f8f8f] tracking-wider mb-2.5">
+    <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+      <div class="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase text-[#8f8f8f] tracking-wider mb-2">
         <span>LEGAL PRECEDENTS &amp; COMPLIANCE</span>
       </div>
       <h2 class="text-2xl sm:text-4xl font-semibold tracking-[-0.03em] text-[#171717] leading-tight">
         Frequently Asked Questions
       </h2>
-      <p class="text-xs sm:text-sm text-[#666] mt-2.5 leading-relaxed">
+      <p class="text-xs sm:text-sm text-[#666] mt-2 leading-relaxed">
         Everything you need to know about the Payment of Gratuity Act 1972, Section 10(10) tax exemptions, and court rulings.
       </p>
     </div>
 
     <!-- FAQ Accordion List -->
-    <div class="space-y-3.5">
+    <div class="space-y-3">
       {faqs.map((faq, index) => (
         <details
-          class="group border border-[#ebebeb] rounded-2xl p-5 bg-[#fafafa] open:bg-white open:shadow-xs transition-all duration-200"
+          class="group border border-[#ebebeb] rounded-xl sm:rounded-2xl p-4 sm:p-5 bg-[#fafafa] open:bg-white open:shadow-xs transition-all duration-200"
         >
-          <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
-            <span class="flex items-center gap-3">
-              <span class="font-mono text-xs text-[#8f8f8f] shrink-0 font-normal">
+          <summary class="flex items-center justify-between font-medium text-xs sm:text-base text-[#171717] cursor-pointer select-none">
+            <span class="flex items-center gap-2 sm:gap-3">
+              <span class="font-mono text-[11px] sm:text-xs text-[#8f8f8f] shrink-0 font-normal">
                 {String(index + 1).padStart(2, '0')}.
               </span>
               <span>{faq.question}</span>
             </span>
-            <div class="w-6 h-6 rounded-full bg-white border border-[#ebebeb] flex items-center justify-center shrink-0 ml-3 group-open:bg-[#171717] group-open:border-[#171717] transition-colors">
+            <div class="w-6 h-6 rounded-full bg-white border border-[#ebebeb] flex items-center justify-center shrink-0 ml-2 group-open:bg-[#171717] group-open:border-[#171717] transition-colors">
               <svg
                 class="w-3.5 h-3.5 text-[#8f8f8f] group-open:text-white group-open:rotate-180 transition-transform"
                 xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@ const faqSchema = {
             </div>
           </summary>
           <div
-            class="pt-3.5 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3.5 pl-7"
+            class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 pl-2 sm:pl-7"
             set:html={faq.answerHtml}
           />
         </details>
