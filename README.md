@@ -1,43 +1,38 @@
-# Astro Starter Kit: Minimal
+# Gratuity Calculator (freegratuitycalculator.com)
 
-```sh
-npm create astro@latest -- --template minimal
+A high-precision gratuity calculation platform for Indian employees and HR teams, adhering strictly to the **Payment of Gratuity Act, 1972** and **Section 10(10)** of the Income Tax Act, 1961. Designed with the Vercel Geist aesthetic (`DESIGN.md`).
+
+## ✨ Key Features
+
+- **Covered vs. Not Covered under Gratuity Act 1972**:
+  - Covered formula: `(15 × Last Drawn Salary × Tenure) ÷ 26` (with rounding for service > 6 months).
+  - Non-covered formula: `(15 × 10-month Avg Salary × Completed Years) ÷ 30`.
+  - Government Employee option (100% tax-free up to ₹25 Lakhs).
+- **Section 10(10) Tax Exemption Engine**: Computes exact tax-exempt vs. taxable gratuity with visual segmented progress bar.
+- **Tenure Breakdown**: Dual years + extra months inputs with automated statutory rounding.
+- **5-Year Eligibility Guard**: Explains the 4 years 240 days rule and death/disablement waivers.
+- **Career Accumulation Matrix**: Dynamic milestone forecast with annual salary increment projections.
+- **CTC-to-Basic Splitter**: Helps users split monthly CTC into basic pay.
+- **Instant Export**: Print / PDF statement generation and one-click clipboard summary sharing.
+
+## 🚀 Development
+
+```bash
+# Start Astro dev server in background mode
+npx astro dev --background
+
+# Server status & logs
+npx astro dev status
+npx astro dev logs
+npx astro dev stop
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🔄 Automatic GitHub Sync
 
-## 🚀 Project Structure
+To automatically watch this folder and push any file updates directly to GitHub:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run sync:watch
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Whenever you modify and save any file, the watcher debounces for 3 seconds, stages the changes, creates an auto-timestamped commit, and pushes to `origin main`.
