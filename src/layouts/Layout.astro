@@ -1,0 +1,69 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Gratuity Calculator India 2025–26 | Covered & Non-Covered (Tax Exemption)",
+  description = "Calculate gratuity payout for employees covered and not covered under the Payment of Gratuity Act 1972. Includes Section 10(10) tax exemption breakdown, tenure rounding rules, and instant PDF summary.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, "https://freegratuitycalculator.com");
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="gratuity calculator, online gratuity calculator india, covered under gratuity act, not covered under gratuity act, gratuity tax exemption section 10 10, gratuity formula 15 26, free gratuity calculator" />
+    <meta name="author" content="freegratuitycalculator.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Free Gratuity Calculator" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Google Fonts: Geist & Geist Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data (JSON-LD) for Calculator -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free Gratuity Calculator India",
+        "url": "https://freegratuitycalculator.com",
+        "description": "Calculate gratuity payout for employees covered and not covered under the Gratuity Act 1972 with Section 10(10) tax exemptions.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "INR"
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-[#fafafa] text-[#171717] antialiased selection:bg-[#171717] selection:text-white min-h-screen flex flex-col font-sans">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,131 @@
+---
+// TaxationGuide.astro
+---
+
+<section id="taxation" class="w-full py-12 md:py-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-3xl mb-10">
+      <div class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase text-[#8f8f8f] tracking-wider mb-2">
+        <span>INCOME TAX ACT, 1961</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-[#171717]">
+        Section 10(10) Tax Exemption Rules &amp; Limits
+      </h2>
+      <p class="text-sm text-[#4d4d4d] mt-2 leading-relaxed">
+        Gratuity received by an employee is treated as part of salary income, but significant statutory tax relief is granted under Section 10(10). Here is how the exemption is legally evaluated.
+      </p>
+    </div>
+
+    <!-- 3 Core Scenarios Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Card 1: Govt Employees -->
+      <div class="bg-white border border-[#ebebeb] rounded-xl p-6 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="w-8 h-8 rounded-lg bg-[#fafafa] border border-[#ebebeb] flex items-center justify-center font-mono font-bold text-xs text-[#171717] mb-4">
+            01
+          </div>
+          <h3 class="font-semibold text-base text-[#171717] tracking-tight mb-2">
+            Government Employees
+          </h3>
+          <p class="text-xs text-[#4d4d4d] leading-relaxed mb-4">
+            Employees of Central Government, State Government, Defense forces, and Local Authorities under Section 10(10)(i).
+          </p>
+          <div class="p-3 bg-emerald-50/70 border border-emerald-200/60 rounded-lg text-xs font-mono text-emerald-800">
+            <strong>Exemption:</strong> 100% Tax-Free up to ₹25 Lakhs (post-7th Pay Commission).
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#f0f0f0] text-[11px] text-[#8f8f8f]">
+          Entire gratuity received on superannuation or retirement is fully exempt.
+        </div>
+      </div>
+
+      <!-- Card 2: Covered Under Act -->
+      <div class="bg-white border border-[#ebebeb] rounded-xl p-6 shadow-xs flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl pointer-events-none"></div>
+        <div>
+          <div class="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center font-mono font-bold text-xs text-blue-700 mb-4">
+            02
+          </div>
+          <h3 class="font-semibold text-base text-[#171717] tracking-tight mb-2">
+            Private: Covered Under Act
+          </h3>
+          <p class="text-xs text-[#4d4d4d] leading-relaxed mb-4">
+            Non-government employees whose organization is covered under the Payment of Gratuity Act 1972 (Section 10(10)(ii)).
+          </p>
+          <div class="space-y-1.5 text-xs text-[#171717] bg-[#fafafa] p-3 rounded-lg border border-[#ebebeb]">
+            <span class="block font-mono text-[10px] text-[#8f8f8f] uppercase font-semibold">Least of the 3 is Exempt:</span>
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>
+              <span>1. Actual Gratuity received</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>
+              <span>2. Statutory limit: <strong>₹20,00,000</strong></span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>
+              <span>3. Formula: <strong>(15 × Salary × N) ÷ 26</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#f0f0f0] text-[11px] text-[#8f8f8f]">
+          Any amount exceeding the lowest of these 3 figures is taxable as salary income.
+        </div>
+      </div>
+
+      <!-- Card 3: Not Covered Under Act -->
+      <div class="bg-white border border-[#ebebeb] rounded-xl p-6 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="w-8 h-8 rounded-lg bg-[#fafafa] border border-[#ebebeb] flex items-center justify-center font-mono font-bold text-xs text-[#171717] mb-4">
+            03
+          </div>
+          <h3 class="font-semibold text-base text-[#171717] tracking-tight mb-2">
+            Private: Not Covered Under Act
+          </h3>
+          <p class="text-xs text-[#4d4d4d] leading-relaxed mb-4">
+            Employees in organizations not covered under the Act receiving gratuity as an employment covenant (Section 10(10)(iii)).
+          </p>
+          <div class="space-y-1.5 text-xs text-[#171717] bg-[#fafafa] p-3 rounded-lg border border-[#ebebeb]">
+            <span class="block font-mono text-[10px] text-[#8f8f8f] uppercase font-semibold">Least of the 3 is Exempt:</span>
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>
+              <span>1. Actual Gratuity received</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>
+              <span>2. Statutory limit: <strong>₹20,00,000</strong></span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>
+              <span>3. Half-month 10-mo avg salary × Years</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#f0f0f0] text-[11px] text-[#8f8f8f]">
+          Only completed full years are counted; fractional months are not rounded.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Practical Callout / Tip Banner -->
+    <div class="mt-8 p-5 bg-[#fafafa] border border-[#ebebeb] rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-[#171717] font-mono">
+          Lifetime Exemption Ceiling Note
+        </h4>
+        <p class="text-xs text-[#4d4d4d] leading-relaxed">
+          The ₹20 Lakh tax exemption limit is a <strong>cumulative lifetime ceiling</strong> across all employers in your entire career. If you previously claimed ₹5 Lakh tax exemption with a former employer, only ₹15 Lakh remains available for subsequent payouts.
+        </p>
+      </div>
+      <a
+        href="#calculator"
+        class="shrink-0 px-4 py-2 text-xs font-medium rounded-full bg-white border border-[#ebebeb] hover:bg-[#f5f5f5] text-[#171717] transition-all shadow-2xs"
+      >
+        Check Tax Liability
+      </a>
+    </div>
+
+  </div>
+</section>

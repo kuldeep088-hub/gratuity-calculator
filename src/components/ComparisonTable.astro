@@ -1,0 +1,94 @@
+---
+// ComparisonTable.astro
+---
+
+<section id="comparison" class="w-full py-12 md:py-16 bg-white border-y border-[#ebebeb]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-3xl mb-10">
+      <div class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase text-[#8f8f8f] tracking-wider mb-2">
+        <span>LEGAL COMPARISON MATRIX</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-[#171717]">
+        Covered vs. Not Covered under the Gratuity Act 1972
+      </h2>
+      <p class="text-sm text-[#4d4d4d] mt-2 leading-relaxed">
+        Understand the crucial legal distinctions between organizations governed by the Payment of Gratuity Act and those that fall outside its statutory purview.
+      </p>
+    </div>
+
+    <!-- Responsive Table -->
+    <div class="overflow-x-auto border border-[#ebebeb] rounded-xl shadow-2xs bg-white">
+      <table class="w-full text-left text-xs sm:text-sm">
+        <thead>
+          <tr class="bg-[#fafafa] border-b border-[#ebebeb] font-mono text-xs text-[#171717]">
+            <th class="py-4 px-4 sm:px-6 font-semibold w-1/4">Parameter</th>
+            <th class="py-4 px-4 sm:px-6 font-semibold w-3/8 text-blue-700 bg-blue-50/40 border-x border-[#ebebeb]">
+              Covered Under Act 1972
+            </th>
+            <th class="py-4 px-4 sm:px-6 font-semibold w-3/8">
+              Not Covered Under Act
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-[#ebebeb] text-[#4d4d4d]">
+          <tr>
+            <td class="py-4 px-4 sm:px-6 font-medium text-[#171717]">Applicability</td>
+            <td class="py-4 px-4 sm:px-6 bg-blue-50/20 border-x border-[#ebebeb]">
+              Establishments, factories, mines, ports, oilfields, and shops employing <strong>10 or more persons</strong> on any day in the preceding 12 months.
+            </td>
+            <td class="py-4 px-4 sm:px-6">
+              Organizations with fewer than 10 employees, or organizations where gratuity is paid as a voluntary employer benefit or service contract.
+            </td>
+          </tr>
+          <tr>
+            <td class="py-4 px-4 sm:px-6 font-medium text-[#171717]">Calculation Formula</td>
+            <td class="py-4 px-4 sm:px-6 bg-blue-50/20 border-x border-[#ebebeb] font-mono text-xs">
+              <span class="font-bold text-[#171717]">(15 × Last Drawn Salary × Years) ÷ 26</span>
+              <span class="block text-[11px] text-[#8f8f8f] mt-1 font-sans">Divided by 26 working days (excluding 4 Sundays).</span>
+            </td>
+            <td class="py-4 px-4 sm:px-6 font-mono text-xs">
+              <span class="font-bold text-[#171717]">(15 × 10-mo Avg Salary × Completed Years) ÷ 30</span>
+              <span class="block text-[11px] text-[#8f8f8f] mt-1 font-sans">Effectively half a month’s average salary (Salary × 0.5 × Years).</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="py-4 px-4 sm:px-6 font-medium text-[#171717]">Tenure Rounding Rule</td>
+            <td class="py-4 px-4 sm:px-6 bg-blue-50/20 border-x border-[#ebebeb]">
+              <strong class="text-emerald-700">Favorable Rounding:</strong> Any fraction exceeding 6 months counts as 1 full year. (e.g., 6 years 7 months = <strong>7 years</strong>).
+            </td>
+            <td class="py-4 px-4 sm:px-6">
+              <strong class="text-rose-700">Strict Completed Years:</strong> Fractional months are disregarded entirely. (e.g., 6 years 11 months = <strong>6 years</strong>).
+            </td>
+          </tr>
+          <tr>
+            <td class="py-4 px-4 sm:px-6 font-medium text-[#171717]">Salary Base Definition</td>
+            <td class="py-4 px-4 sm:px-6 bg-blue-50/20 border-x border-[#ebebeb]">
+              <strong>Last Drawn Basic Pay + Dearness Allowance (DA)</strong> in the final month of employment.
+            </td>
+            <td class="py-4 px-4 sm:px-6">
+              <strong>Average Basic Pay + DA</strong> drawn during the last 10 calendar months preceding termination.
+            </td>
+          </tr>
+          <tr>
+            <td class="py-4 px-4 sm:px-6 font-medium text-[#171717]">Maximum Statutory Limit</td>
+            <td class="py-4 px-4 sm:px-6 bg-blue-50/20 border-x border-[#ebebeb]">
+              ₹20,00,000 (₹20 Lakhs) under the Payment of Gratuity (Amendment) Act.
+            </td>
+            <td class="py-4 px-4 sm:px-6">
+              ₹20,00,000 (₹20 Lakhs) cumulative lifetime tax exemption limit under Section 10(10)(iii).
+            </td>
+          </tr>
+          <tr>
+            <td class="py-4 px-4 sm:px-6 font-medium text-[#171717]">Delay Interest Penalty</td>
+            <td class="py-4 px-4 sm:px-6 bg-blue-50/20 border-x border-[#ebebeb]">
+              Mandatory simple interest (presently 10% per annum) under Section 7(3A) if not disbursed within 30 days of leaving.
+            </td>
+            <td class="py-4 px-4 sm:px-6">
+              Governed strictly by company policy, employment agreement, or civil labor court decree.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

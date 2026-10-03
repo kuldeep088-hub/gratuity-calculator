@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import GratuityCalculator from '../components/GratuityCalculator.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import TaxationGuide from '../components/TaxationGuide.astro';
+import FaqSection from '../components/FaqSection.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout
+  title="Gratuity Calculator India 2025–26 | Covered & Non-Covered with Tax Exemption"
+  description="Accurately compute gratuity payout, statutory tax exemptions (Section 10(10)), service tenure rounding, and future salary projections for employees covered and not covered under the Gratuity Act 1972."
+>
+  <!-- Vercel Subtle Mesh Gradient Aura in Hero (Restricted to hero only as per DESIGN.md) -->
+  <div class="relative overflow-hidden">
+    <div 
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[360px] opacity-15 pointer-events-none blur-3xl -z-10"
+      style="background: radial-gradient(circle at 20% 30%, #007cf0 0%, transparent 40%), radial-gradient(circle at 50% 20%, #7928ca 0%, transparent 45%), radial-gradient(circle at 80% 30%, #ff0080 0%, transparent 40%), radial-gradient(circle at 50% 80%, #00dfd8 0%, transparent 50%);"
+    ></div>
+
+    <Header />
+    <main class="flex-1">
+      <GratuityCalculator />
+      <ComparisonTable />
+      <TaxationGuide />
+      <FaqSection />
+    </main>
+    <Footer />
+  </div>
+</Layout>

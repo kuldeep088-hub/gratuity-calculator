@@ -1,0 +1,131 @@
+---
+// FaqSection.astro
+---
+
+<section id="faqs" class="w-full py-12 md:py-16 bg-white border-t border-[#ebebeb]">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase text-[#8f8f8f] tracking-wider mb-2">
+        <span>KNOWLEDGE BASE &amp; LEGAL PRECEDENTS</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-[#171717]">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-sm text-[#4d4d4d] mt-2">
+        Everything you need to know about the Payment of Gratuity Act, taxation, notice periods, and judicial exceptions.
+      </p>
+    </div>
+
+    <!-- FAQ Accordion List -->
+    <div class="space-y-4">
+      
+      <!-- FAQ 1: 4 years 240 days rule -->
+      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
+        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
+          <span>Can I get gratuity if I worked for 4 years and 240 days?</span>
+          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
+          <p>
+            <strong>Yes, in most cases.</strong> Section 2A of the Payment of Gratuity Act defines "continuous service". In the 5th year of service, if an employee works for at least <strong>240 days</strong> in an establishment with a 6-day work week (or <strong>190 days</strong> in a 5-day work week / underground mine), that 5th year is legally deemed a full completed year of continuous service.
+          </p>
+          <p class="text-xs text-[#8f8f8f]">
+            This principle has been reinforced in major rulings including <em>Surendra Kumar Verma v. Central Govt. Industrial Tribunal</em> and the Madras High Court judgment in <em>Mettur Beardsell Ltd.</em>
+          </p>
+        </div>
+      </details>
+
+      <!-- FAQ 2: Notice period included? -->
+      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
+        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
+          <span>Does the notice period count towards the 5 years eligibility?</span>
+          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
+          <p>
+            <strong>Yes.</strong> Your period of employment is calculated from your official date of joining up to your <strong>Last Working Day (LWD)</strong>, inclusive of the served notice period or approved leaves on the payroll. However, if an employee buys out their notice period and is released early, only the days actually served on payroll are counted.
+          </p>
+        </div>
+      </details>
+
+      <!-- FAQ 3: 15/26 formula explanation -->
+      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
+        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
+          <span>Why does the formula divide by 26 instead of 30?</span>
+          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
+          <p>
+            Under Section 4(2) of the Act, a month is calculated as having <strong>26 working days</strong>, deducting 4 weekly off-days (Sundays). Thus:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 font-mono text-xs">
+            <li>Daily Wage = Monthly Basic + DA ÷ 26</li>
+            <li>15 Days' Wages = (Monthly Basic + DA ÷ 26) × 15</li>
+            <li>Total Gratuity = 15 Days' Wages × Years of Service</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- FAQ 4: Employer delay in payment -->
+      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
+        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
+          <span>What if an employer delays payment beyond 30 days?</span>
+          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
+          <p>
+            Under Section 7(3) of the Act, the employer must arrange to pay the amount of gratuity within <strong>30 days</strong> from the date it becomes payable. Under Section 7(3A), if the employer fails to pay within this period, they are legally liable to pay <strong>simple interest</strong> (currently 10% per annum) for every day of delay, unless the delay was caused solely by the employee's fault.
+          </p>
+        </div>
+      </details>
+
+      <!-- FAQ 5: Can gratuity be forfeited or withheld? -->
+      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
+        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
+          <span>Can an employer forfeit or withhold my gratuity?</span>
+          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
+          <p>
+            <strong>Only under very narrow statutory exceptions.</strong> Section 4(6) permits forfeiture only if an employee's services were terminated due to:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-xs">
+            <li>Willful omission or negligence causing monetary loss or damage to property (forfeited only to the extent of actual loss caused).</li>
+            <li>Riotous, disorderly conduct or any act of violence.</li>
+            <li>An offense involving moral turpitude committed during employment.</li>
+          </ul>
+          <p class="text-xs text-[#8f8f8f]">
+            Gratuity cannot be withheld arbitrarily, nor can it be withheld for performance or general disputes without a formal domestic inquiry and termination order.
+          </p>
+        </div>
+      </details>
+
+      <!-- FAQ 6: What if salary exceeds ₹20 Lakhs statutory limit? -->
+      <details class="group border border-[#ebebeb] rounded-xl p-5 bg-[#fafafa] open:bg-white transition-colors">
+        <summary class="flex items-center justify-between font-medium text-sm sm:text-base text-[#171717] cursor-pointer select-none">
+          <span>Can an employer pay more than ₹20 Lakhs as gratuity?</span>
+          <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-180 transition-transform shrink-0 ml-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="pt-3 text-xs sm:text-sm text-[#4d4d4d] leading-relaxed border-t border-[#f0f0f0] mt-3 space-y-2">
+          <p>
+            <strong>Yes.</strong> Section 4(5) states that nothing in the Act shall affect the right of an employee to receive higher gratuity under an award, contract, or employer agreement. Any amount paid above the ₹20 Lakh statutory ceiling is treated as an <em>ex-gratia</em> payment and the excess is taxable according to your normal income tax bracket.
+          </p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
