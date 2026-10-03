@@ -1,14 +1,15 @@
 ---
+// Header.astro
 ---
-<header class="sticky top-0 z-50 w-full border-b border-[#ebebeb] bg-[#fafafa]/80 backdrop-blur-md transition-colors">
+<header class="sticky top-0 z-50 w-full border-b border-[#ebebeb] bg-[#fafafa]/90 backdrop-blur-md transition-colors">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
     <!-- Brand / Logo -->
-    <a href="/" class="flex items-center gap-2.5 group">
+    <a href="/" class="flex items-center gap-2.5 group shrink-0">
       <div class="w-8 h-8 rounded-lg bg-[#171717] text-white flex items-center justify-center font-mono font-bold text-sm tracking-tight shadow-xs group-hover:scale-105 transition-transform">
         ₹G
       </div>
       <div class="flex flex-col">
-        <span class="font-semibold text-base tracking-tight text-[#171717] group-hover:text-black">
+        <span class="font-semibold text-sm sm:text-base tracking-tight text-[#171717]">
           Gratuity Calculator
         </span>
         <span class="font-mono text-[10px] uppercase text-[#8f8f8f] tracking-wider -mt-1 hidden sm:block">
@@ -18,7 +19,7 @@
     </a>
 
     <!-- Nav Links (Desktop) -->
-    <nav class="hidden md:flex items-center gap-1 text-sm font-medium text-[#4d4d4d]">
+    <nav class="hidden md:flex items-center gap-1 text-xs lg:text-sm font-medium text-[#4d4d4d]">
       <a href="#calculator" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#f2f2f2] transition-colors">
         Calculator
       </a>
@@ -26,7 +27,7 @@
         Covered vs Non-Covered
       </a>
       <a href="#taxation" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#f2f2f2] transition-colors">
-        Sec 10(10) Tax Exemption
+        Tax Exemption
       </a>
       <a href="#growth-matrix" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#f2f2f2] transition-colors">
         Growth Matrix
@@ -37,12 +38,13 @@
     </nav>
 
     <!-- Header Actions -->
-    <div class="flex items-center gap-2.5">
+    <div class="flex items-center gap-2">
       <button
         type="button"
         id="header-share-btn"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-[#ebebeb] bg-white text-[#171717] hover:bg-[#f5f5f5] hover:border-[#d4d4d4] transition-all cursor-pointer shadow-2xs"
+        class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-lg border border-[#ebebeb] bg-white text-[#171717] hover:bg-[#f5f5f5] transition-all cursor-pointer shadow-2xs min-h-[38px]"
         title="Share this calculator"
+        aria-label="Share this calculator"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="18" cy="5" r="3"></circle>
@@ -56,15 +58,83 @@
 
       <a
         href="#calculator"
-        class="inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-medium rounded-full bg-[#171717] text-white hover:bg-black transition-all shadow-xs"
+        class="hidden sm:inline-flex items-center justify-center px-3.5 py-2 text-xs font-medium rounded-full bg-[#171717] text-white hover:bg-black transition-all shadow-xs min-h-[38px]"
       >
-        Calculate Now
+        Calculate
       </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        type="button"
+        id="mobile-menu-toggle"
+        class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg border border-[#ebebeb] bg-white text-[#171717] hover:bg-[#f5f5f5] cursor-pointer"
+        aria-label="Toggle mobile navigation menu"
+      >
+        <svg id="hamburger-icon" class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg id="close-icon" class="w-4 h-4 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
     </div>
+  </div>
+
+  <!-- Mobile Dropdown Drawer -->
+  <div id="mobile-nav-drawer" class="hidden md:hidden border-t border-[#ebebeb] bg-white px-4 py-4 space-y-2 shadow-sm animate-in fade-in slide-in-from-top-2 duration-200">
+    <a href="#calculator" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#171717] hover:bg-[#f5f5f5] transition-colors">
+      Gratuity Calculator
+    </a>
+    <a href="#comparison" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#4d4d4d] hover:bg-[#f5f5f5] hover:text-[#171717] transition-colors">
+      Covered vs Non-Covered Matrix
+    </a>
+    <a href="#taxation" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#4d4d4d] hover:bg-[#f5f5f5] hover:text-[#171717] transition-colors">
+      Section 10(10) Tax Exemption
+    </a>
+    <a href="#growth-matrix" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#4d4d4d] hover:bg-[#f5f5f5] hover:text-[#171717] transition-colors">
+      Career Growth Matrix
+    </a>
+    <a href="#faqs" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-[#4d4d4d] hover:bg-[#f5f5f5] hover:text-[#171717] transition-colors">
+      Legal &amp; Tax FAQs
+    </a>
   </div>
 </header>
 
 <script is:inline>
+  // Mobile Nav Drawer Toggle
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const navDrawer = document.getElementById('mobile-nav-drawer');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (menuToggle && navDrawer) {
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = !navDrawer.classList.contains('hidden');
+      if (isExpanded) {
+        navDrawer.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        navDrawer.classList.remove('hidden');
+        hamburgerIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navDrawer.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+  }
+
+  // Share button
   const shareBtn = document.getElementById('header-share-btn');
   if (shareBtn) {
     shareBtn.addEventListener('click', async () => {
@@ -81,7 +151,7 @@
       } else {
         await navigator.clipboard.writeText(window.location.href);
         const originalText = shareBtn.innerHTML;
-        shareBtn.innerHTML = '<span>✓ Copied URL!</span>';
+        shareBtn.innerHTML = '<span>✓ Copied!</span>';
         setTimeout(() => {
           shareBtn.innerHTML = originalText;
         }, 2000);
