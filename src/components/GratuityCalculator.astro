@@ -3,144 +3,125 @@
 // Interactive Gratuity Calculator adhering to DESIGN.md
 ---
 
-<section id="calculator" class="w-full py-8 md:py-14">
+<section id="calculator" class="w-full py-6 md:py-10">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Hero / Headline -->
-    <div class="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-      <h1 class="text-3xl sm:text-5xl font-semibold tracking-[-0.04em] text-[#171717] leading-[1.1] mb-4">
-        Calculate Your Exact Gratuity & Tax Exemption
+    <!-- Hero / Headline (Short & Punchy) -->
+    <div class="text-center max-w-2xl mx-auto mb-6 md:mb-8">
+      <h1 class="text-2xl sm:text-4xl font-semibold tracking-[-0.03em] text-[#171717] mb-2">
+        Gratuity Calculator
       </h1>
-      <p class="text-[#4d4d4d] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-        Accurate formula calculation for both <strong class="font-medium text-[#171717]">Covered</strong> and <strong class="font-medium text-[#171717]">Not Covered</strong> employees, including statutory Section 10(10) limits, service rounding, and future projections.
+      <p class="text-xs sm:text-sm text-[#4d4d4d] max-w-md mx-auto">
+        Instant gratuity payout, service rounding, and Section 10(10) tax exemption calculation.
       </p>
     </div>
 
     <!-- Main Calculator Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
       
-      <!-- Left Column: Inputs & Configurations (7 cols) -->
-      <div class="lg:col-span-7 space-y-6">
+      <!-- Left Column: Consolidated Inputs (7 cols) -->
+      <div class="lg:col-span-7 bg-white border border-[#ebebeb] rounded-xl p-5 sm:p-6 shadow-xs space-y-5">
         
-        <!-- Category Tab: Covered vs Not Covered vs Govt -->
-        <div class="bg-white border border-[#ebebeb] rounded-xl p-5 sm:p-6 shadow-xs">
-          <label class="block font-mono text-xs font-semibold uppercase text-[#8f8f8f] tracking-wider mb-3">
-            1. Employment Category
-          </label>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 p-1 bg-[#f5f5f5] rounded-lg border border-[#ebebeb]">
+        <!-- Category Segmented Control -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-mono text-[11px] font-semibold uppercase text-[#8f8f8f] tracking-wider">
+              Employment Category
+            </span>
+            <span id="category-description-text" class="text-[11px] text-[#8f8f8f] truncate max-w-[260px] text-right hidden sm:block">
+              Covered under Act (26 days base)
+            </span>
+          </div>
+          <div class="grid grid-cols-3 gap-1.5 p-1 bg-[#f5f5f5] rounded-lg border border-[#ebebeb]">
             <button
               type="button"
               id="tab-covered"
-              class="category-tab py-2.5 px-3 text-xs font-medium rounded-md transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs font-sans"
+              class="category-tab py-2 px-2 text-xs font-medium rounded-md transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs"
               data-category="covered"
             >
-              Covered under Act
-              <span class="block text-[10px] text-[#8f8f8f] font-mono mt-0.5">Formula: 15/26</span>
+              Covered
+              <span class="block text-[10px] text-[#8f8f8f] font-mono">15/26 days</span>
             </button>
             <button
               type="button"
               id="tab-not-covered"
-              class="category-tab py-2.5 px-3 text-xs font-medium rounded-md transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] font-sans"
+              class="category-tab py-2 px-2 text-xs font-medium rounded-md transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717]"
               data-category="not-covered"
             >
               Not Covered
-              <span class="block text-[10px] text-[#8f8f8f] font-mono mt-0.5">Formula: 15/30</span>
+              <span class="block text-[10px] text-[#8f8f8f] font-mono">15/30 days</span>
             </button>
             <button
               type="button"
               id="tab-govt"
-              class="category-tab py-2.5 px-3 text-xs font-medium rounded-md transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] font-sans"
+              class="category-tab py-2 px-2 text-xs font-medium rounded-md transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717]"
               data-category="govt"
             >
               Government
-              <span class="block text-[10px] text-[#8f8f8f] font-mono mt-0.5">100% Tax Free</span>
+              <span class="block text-[10px] text-[#8f8f8f] font-mono">Tax-Free</span>
             </button>
-          </div>
-
-          <!-- Category Description Context -->
-          <div id="category-info-box" class="mt-4 p-3 bg-[#fafafa] rounded-md border border-[#f0f0f0] text-xs text-[#4d4d4d] flex items-start gap-2.5">
-            <svg class="w-4 h-4 text-[#8f8f8f] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-            <span id="category-description-text">
-              Applies to private establishments, factories, mines, ports, and shops with 10+ employees. Uses 26 working days per month with rounding above 6 months.
-            </span>
           </div>
         </div>
 
-        <!-- Monthly Salary Input Card -->
-        <div class="bg-white border border-[#ebebeb] rounded-xl p-5 sm:p-6 shadow-xs space-y-4">
+        <!-- Monthly Salary Section -->
+        <div class="pt-2 border-t border-[#f0f0f0] space-y-3">
           <div class="flex items-center justify-between">
-            <div>
-              <label for="salary-input" class="block font-medium text-sm text-[#171717]">
-                Monthly Salary (Last Drawn Basic + DA)
-              </label>
-              <p class="text-xs text-[#8f8f8f] mt-0.5">
-                Exclude HRA, bonuses, incentives, and special allowances.
-              </p>
-            </div>
-            <!-- Quick CTC helper toggle button -->
+            <label for="salary-input" class="font-medium text-xs sm:text-sm text-[#171717]">
+              Monthly Basic Pay + DA
+            </label>
             <button
               type="button"
               id="toggle-ctc-helper"
-              class="text-xs font-mono text-[#0070f3] hover:underline cursor-pointer flex items-center gap-1"
+              class="text-xs font-mono text-[#0070f3] hover:underline cursor-pointer"
             >
-              CTC Helper
+              CTC Helper ▾
             </button>
           </div>
 
-          <!-- CTC helper drawer (hidden by default) -->
-          <div id="ctc-helper-drawer" class="hidden p-3.5 bg-[#f9f9f9] border border-[#ebebeb] rounded-lg text-xs space-y-2.5">
+          <!-- CTC helper drawer -->
+          <div id="ctc-helper-drawer" class="hidden p-3 bg-[#f9f9f9] border border-[#ebebeb] rounded-lg text-xs space-y-2">
             <div class="flex items-center justify-between">
-              <span class="font-medium text-[#171717]">Split Basic from Annual CTC</span>
-              <span class="text-[11px] text-[#8f8f8f]">Rule of thumb: 40%–50%</span>
+              <span class="font-medium text-[#171717]">Estimate Basic from Annual CTC</span>
+              <span class="text-[10px] text-[#8f8f8f]">Rule of thumb: 40%–50%</span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <div>
-                <label class="text-[11px] text-[#8f8f8f] block mb-1">Annual CTC (₹)</label>
-                <input
-                  type="number"
-                  id="helper-ctc-input"
-                  placeholder="e.g. 1200000"
-                  class="w-full px-2.5 py-1.5 text-xs bg-white border border-[#ebebeb] rounded-md focus:outline-none focus:border-[#171717]"
-                />
-              </div>
-              <div class="flex items-end gap-1.5">
+              <input
+                type="number"
+                id="helper-ctc-input"
+                placeholder="Annual CTC in ₹ (e.g. 1200000)"
+                class="w-full px-2.5 py-1.5 text-xs bg-white border border-[#ebebeb] rounded-md focus:outline-none focus:border-[#171717]"
+              />
+              <div class="flex items-center gap-1.5">
                 <button
                   type="button"
                   id="apply-ctc-40"
                   class="w-1/2 py-1.5 px-2 bg-white border border-[#ebebeb] rounded-md text-[11px] font-medium hover:bg-[#ebebeb] transition-colors"
                 >
-                  Apply 40%
+                  Use 40%
                 </button>
                 <button
                   type="button"
                   id="apply-ctc-50"
                   class="w-1/2 py-1.5 px-2 bg-white border border-[#ebebeb] rounded-md text-[11px] font-medium hover:bg-[#ebebeb] transition-colors"
                 >
-                  Apply 50%
+                  Use 50%
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- Salary Input Box & Live Slider -->
-          <div class="flex items-center gap-3">
-            <div class="relative flex-1">
-              <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8f8f8f] font-mono text-base font-semibold">₹</span>
-              <input
-                type="text"
-                id="salary-input"
-                value="60,000"
-                class="w-full pl-8 pr-4 py-2.5 text-lg font-semibold tracking-tight text-[#171717] bg-[#fafafa] border border-[#ebebeb] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#171717] focus:bg-white transition-all"
-              />
-            </div>
+          <!-- Salary Input + Slider -->
+          <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#8f8f8f] font-mono text-base font-semibold">₹</span>
+            <input
+              type="text"
+              id="salary-input"
+              value="60,000"
+              class="w-full pl-7 pr-3 py-2 text-base font-semibold tracking-tight text-[#171717] bg-[#fafafa] border border-[#ebebeb] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#171717] focus:bg-white transition-all"
+            />
           </div>
 
-          <!-- Range Slider -->
-          <div class="pt-1">
+          <div>
             <input
               type="range"
               id="salary-slider"
@@ -150,43 +131,41 @@
               value="60000"
               class="w-full"
             />
-            <div class="flex justify-between text-[11px] font-mono text-[#8f8f8f] mt-1.5">
+            <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f] mt-1">
               <span>₹10,000</span>
               <span>₹2,50,000</span>
               <span>₹5,00,000</span>
             </div>
           </div>
 
-          <!-- Preset chips -->
-          <div class="flex flex-wrap items-center gap-1.5 pt-1">
-            <span class="text-xs text-[#8f8f8f] mr-1">Presets:</span>
-            <button type="button" class="preset-salary text-xs font-mono px-2 py-0.5 bg-[#f5f5f5] hover:bg-[#ebebeb] rounded border border-[#e5e5e5] text-[#4d4d4d]" data-val="30000">₹30k</button>
-            <button type="button" class="preset-salary text-xs font-mono px-2 py-0.5 bg-[#f5f5f5] hover:bg-[#ebebeb] rounded border border-[#e5e5e5] text-[#4d4d4d]" data-val="50000">₹50k</button>
-            <button type="button" class="preset-salary text-xs font-mono px-2 py-0.5 bg-[#f5f5f5] hover:bg-[#ebebeb] rounded border border-[#e5e5e5] text-[#4d4d4d]" data-val="75000">₹75k</button>
-            <button type="button" class="preset-salary text-xs font-mono px-2 py-0.5 bg-[#f5f5f5] hover:bg-[#ebebeb] rounded border border-[#e5e5e5] text-[#4d4d4d]" data-val="100000">₹1 Lakh</button>
-            <button type="button" class="preset-salary text-xs font-mono px-2 py-0.5 bg-[#f5f5f5] hover:bg-[#ebebeb] rounded border border-[#e5e5e5] text-[#4d4d4d]" data-val="150000">₹1.5 Lakh</button>
+          <!-- Quick Presets -->
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="text-[11px] text-[#8f8f8f]">Presets:</span>
+            <button type="button" class="preset-salary text-[11px] font-mono px-2 py-0.5 bg-[#f5f5f5] hover:bg-[#ebebeb] rounded border border-[#e5e5e5] text-[#4d4d4d]" data-val="30000">₹30k</button>
+            <button type="button" class="preset-salary text-[11px] font-mono px-2 py-0.5 bg-[#f5f5f5] hover:bg-[#ebebeb] rounded border border-[#e5e5e5] text-[#4d4d4d]" data-val="50000">₹50k</button>
+            <button type="button" class="preset-salary text-[11px] font-mono px-2 py-0.5 bg-[#f5f5f5] hover:bg-[#ebebeb] rounded border border-[#e5e5e5] text-[#4d4d4d]" data-val="75000">₹75k</button>
+            <button type="button" class="preset-salary text-[11px] font-mono px-2 py-0.5 bg-[#f5f5f5] hover:bg-[#ebebeb] rounded border border-[#e5e5e5] text-[#4d4d4d]" data-val="100000">₹1L</button>
+            <button type="button" class="preset-salary text-[11px] font-mono px-2 py-0.5 bg-[#f5f5f5] hover:bg-[#ebebeb] rounded border border-[#e5e5e5] text-[#4d4d4d]" data-val="150000">₹1.5L</button>
           </div>
         </div>
 
-        <!-- Tenure of Service Input Card -->
-        <div class="bg-white border border-[#ebebeb] rounded-xl p-5 sm:p-6 shadow-xs space-y-5">
+        <!-- Tenure Section -->
+        <div class="pt-2 border-t border-[#f0f0f0] space-y-3">
           <div class="flex items-center justify-between">
-            <label class="block font-medium text-sm text-[#171717]">
-              Total Period of Continuous Service
-            </label>
+            <span class="font-medium text-xs sm:text-sm text-[#171717]">
+              Service Tenure
+            </span>
             <span id="effective-years-badge" class="font-mono text-xs px-2 py-0.5 bg-[#f2f2f2] text-[#171717] rounded-md font-semibold">
               Effective: 10 Years
             </span>
           </div>
 
-          <!-- Dual Sliders: Years & Extra Months -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <!-- Years -->
-            <div class="p-3.5 bg-[#fafafa] border border-[#ebebeb] rounded-lg space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-medium text-[#4d4d4d]">Completed Years</span>
-                <span id="years-display" class="font-mono font-bold text-sm text-[#171717]">10 yrs</span>
+            <div class="p-3 bg-[#fafafa] border border-[#ebebeb] rounded-lg space-y-1.5">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-[#4d4d4d]">Completed Years</span>
+                <span id="years-display" class="font-mono font-bold text-[#171717]">10 yrs</span>
               </div>
               <input
                 type="range"
@@ -197,18 +176,13 @@
                 value="10"
                 class="w-full"
               />
-              <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f]">
-                <span>1 yr</span>
-                <span>20 yrs</span>
-                <span>45 yrs</span>
-              </div>
             </div>
 
-            <!-- Extra Months -->
-            <div class="p-3.5 bg-[#fafafa] border border-[#ebebeb] rounded-lg space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-medium text-[#4d4d4d]">Additional Months</span>
-                <span id="months-display" class="font-mono font-bold text-sm text-[#171717]">0 mos</span>
+            <!-- Months -->
+            <div class="p-3 bg-[#fafafa] border border-[#ebebeb] rounded-lg space-y-1.5">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-[#4d4d4d]">Extra Months</span>
+                <span id="months-display" class="font-mono font-bold text-[#171717]">0 mos</span>
               </div>
               <input
                 type="range"
@@ -219,121 +193,83 @@
                 value="0"
                 class="w-full"
               />
-              <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f]">
-                <span>0 mos</span>
-                <span>6 mos (cutoff)</span>
-                <span>11 mos</span>
-              </div>
             </div>
           </div>
 
-          <!-- Rounding rule status alert -->
-          <div id="rounding-alert-box" class="p-3 bg-[#fafafa] border border-[#ebebeb] rounded-lg text-xs flex items-center justify-between">
-            <span id="rounding-explanation" class="text-[#4d4d4d]">
+          <!-- Rounding rule status -->
+          <div id="rounding-alert-box" class="p-2.5 bg-[#fafafa] border border-[#ebebeb] rounded-md text-[11px] text-[#4d4d4d]">
+            <span id="rounding-explanation">
               Service of 10 years 0 months counts as <strong>10 years</strong> for calculation.
             </span>
-            <span class="font-mono text-[10px] text-[#8f8f8f] uppercase">Rule Applied</span>
           </div>
 
           <!-- 5-Year Eligibility Guard Card -->
-          <div id="eligibility-guard" class="hidden p-3.5 bg-amber-50/80 border border-amber-200/80 rounded-lg text-xs space-y-2">
-            <div class="flex items-start gap-2">
-              <span class="text-amber-600 font-bold">⚠️</span>
-              <div class="space-y-1">
-                <p class="font-medium text-amber-900">
-                  Continuous service is under 5 years (<span id="actual-tenure-str">4 yrs</span>)
-                </p>
-                <p class="text-amber-800 text-[11px] leading-relaxed">
-                  Under Section 4(1) of the Gratuity Act, an employee is generally eligible for gratuity only upon completing 5 years of continuous service.
-                </p>
-              </div>
+          <div id="eligibility-guard" class="hidden p-3 bg-amber-50/90 border border-amber-200 rounded-lg text-xs space-y-1.5">
+            <div class="flex items-start gap-1.5 text-amber-900 font-medium">
+              <span>⚠️</span>
+              <span>Tenure under 5 years (<span id="actual-tenure-str">4 yrs</span>)</span>
             </div>
-            
-            <!-- Exceptions Checklist -->
-            <div class="pt-1.5 border-t border-amber-200/60 space-y-1.5">
-              <span class="font-mono text-[10px] uppercase font-semibold text-amber-900 block">Applicable Legal Exceptions:</span>
-              <label class="flex items-center gap-2 cursor-pointer text-amber-900 select-none">
-                <input type="checkbox" id="check-240-days" class="rounded border-amber-300 text-[#171717] focus:ring-0" />
-                <span>Completed 4 years &amp; 240 working days (Qualifies as 5 years under judicial rulings)</span>
+            <p class="text-[11px] text-amber-800 leading-normal">
+              Standard gratuity requires 5 continuous years. Select an exception if applicable:
+            </p>
+            <div class="space-y-1 pt-1 text-[11px] text-amber-900">
+              <label class="flex items-center gap-1.5 cursor-pointer">
+                <input type="checkbox" id="check-240-days" class="rounded text-[#171717]" />
+                <span>4 years + 240 working days served</span>
               </label>
-              <label class="flex items-center gap-2 cursor-pointer text-amber-900 select-none">
-                <input type="checkbox" id="check-disablement" class="rounded border-amber-300 text-[#171717] focus:ring-0" />
-                <span>Termination caused by death or permanent disablement (5-year rule is waived)</span>
+              <label class="flex items-center gap-1.5 cursor-pointer">
+                <input type="checkbox" id="check-disablement" class="rounded text-[#171717]" />
+                <span>Separation due to death or disablement (5-yr rule waived)</span>
               </label>
             </div>
           </div>
         </div>
 
-        <!-- Advanced Projection & Ex-Gratia Accordion -->
-        <details class="group bg-white border border-[#ebebeb] rounded-xl p-5 shadow-xs">
-          <summary class="font-medium text-sm text-[#171717] cursor-pointer flex items-center justify-between select-none">
-            <span class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-[#8f8f8f] group-open:rotate-90 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-              Advanced Simulation: Future Hike &amp; Actual Received
-            </span>
-            <span class="font-mono text-[11px] text-[#8f8f8f]">Optional</span>
+        <!-- Optional Simulation Accordion -->
+        <details class="group pt-2 border-t border-[#f0f0f0]">
+          <summary class="text-xs font-medium text-[#8f8f8f] hover:text-[#171717] cursor-pointer flex items-center justify-between select-none py-1">
+            <span>+ Optional: Actual Gratuity &amp; Annual Hike Simulator</span>
+            <span class="font-mono text-[10px]">Open</span>
           </summary>
-          
-          <div class="pt-4 mt-3 border-t border-[#f0f0f0] space-y-4 text-xs">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <!-- Actual Amount Received (for taxable calculation check) -->
-              <div>
-                <label for="actual-gratuity-input" class="block font-medium text-[#171717] mb-1">
-                  Actual Gratuity Received (if different)
-                </label>
-                <div class="relative">
-                  <span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-[#8f8f8f] font-mono">₹</span>
-                  <input
-                    type="number"
-                    id="actual-gratuity-input"
-                    placeholder="Auto-calculated from formula"
-                    class="w-full pl-6 pr-3 py-1.5 text-xs bg-[#fafafa] border border-[#ebebeb] rounded-md focus:outline-none focus:border-[#171717]"
-                  />
-                </div>
-                <p class="text-[10px] text-[#8f8f8f] mt-1">
-                  Leave blank to use the statutory formula amount.
-                </p>
-              </div>
-
-              <!-- Annual Expected Salary Hike % -->
-              <div>
-                <label for="annual-hike-input" class="block font-medium text-[#171717] mb-1">
-                  Expected Annual Salary Increment (%)
-                </label>
-                <div class="relative">
-                  <input
-                    type="number"
-                    id="annual-hike-input"
-                    value="8"
-                    min="0"
-                    max="30"
-                    class="w-full pl-3 pr-7 py-1.5 text-xs bg-[#fafafa] border border-[#ebebeb] rounded-md focus:outline-none focus:border-[#171717]"
-                  />
-                  <span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#8f8f8f] font-mono">%</span>
-                </div>
-                <p class="text-[10px] text-[#8f8f8f] mt-1">
-                  Used for computing career milestone projections below.
-                </p>
-              </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 text-xs">
+            <div>
+              <label for="actual-gratuity-input" class="block text-[#4d4d4d] mb-1 text-[11px]">
+                Actual Gratuity Received (₹)
+              </label>
+              <input
+                type="number"
+                id="actual-gratuity-input"
+                placeholder="Defaults to formula"
+                class="w-full px-2.5 py-1.5 text-xs bg-[#fafafa] border border-[#ebebeb] rounded-md focus:outline-none focus:border-[#171717]"
+              />
+            </div>
+            <div>
+              <label for="annual-hike-input" class="block text-[#4d4d4d] mb-1 text-[11px]">
+                Expected Salary Increment (%/yr)
+              </label>
+              <input
+                type="number"
+                id="annual-hike-input"
+                value="8"
+                min="0"
+                max="30"
+                class="w-full px-2.5 py-1.5 text-xs bg-[#fafafa] border border-[#ebebeb] rounded-md focus:outline-none focus:border-[#171717]"
+              />
             </div>
           </div>
         </details>
 
       </div>
 
-      <!-- Right Column: Results & Exemption Card (5 cols - Sticky) -->
-      <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-5">
+      <!-- Right Column: Sticky Results Card (5 cols) -->
+      <div class="lg:col-span-5 lg:sticky lg:top-20 space-y-4">
         
-        <!-- Primary Result Card (Vercel Style) -->
-        <div class="bg-white border border-[#ebebeb] rounded-xl p-6 shadow-sm relative overflow-hidden">
-          
-          <!-- Subtle top accent bar -->
+        <!-- Results Card -->
+        <div class="bg-white border border-[#ebebeb] rounded-xl p-5 sm:p-6 shadow-sm relative overflow-hidden">
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#007cf0] via-[#7928ca] to-[#ff0080]"></div>
 
           <div class="flex items-center justify-between mb-2">
-            <span class="font-mono text-xs font-semibold uppercase text-[#8f8f8f] tracking-wider">
+            <span class="font-mono text-[11px] font-semibold uppercase text-[#8f8f8f] tracking-wider">
               Total Gratuity Payable
             </span>
             <span id="result-status-badge" class="font-mono text-[10px] px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded font-semibold uppercase">
@@ -341,160 +277,128 @@
             </span>
           </div>
 
-          <!-- Big Currency Output -->
+          <!-- Big Output -->
           <div class="mb-1">
             <div class="flex items-baseline gap-1">
-              <span class="font-mono text-2xl text-[#8f8f8f] font-semibold">₹</span>
-              <span id="result-gratuity-amount" class="text-4xl sm:text-5xl font-bold tracking-tight text-[#171717]">
+              <span class="font-mono text-xl sm:text-2xl text-[#8f8f8f] font-semibold">₹</span>
+              <span id="result-gratuity-amount" class="text-3xl sm:text-4xl font-bold tracking-tight text-[#171717]">
                 3,46,154
               </span>
             </div>
-            <p id="result-in-words" class="text-xs text-[#8f8f8f] mt-1 capitalize leading-tight">
+            <p id="result-in-words" class="text-[11px] text-[#8f8f8f] mt-0.5 capitalize truncate">
               Three Lakh Forty-Six Thousand One Hundred Fifty-Four Rupees
             </p>
           </div>
 
-          <!-- Divider -->
-          <div class="my-5 border-t border-[#f0f0f0]"></div>
+          <div class="my-4 border-t border-[#f0f0f0]"></div>
 
-          <!-- Tax Exemption Section 10(10) Breakdown -->
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-xs font-semibold uppercase text-[#171717] tracking-wider flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <!-- Tax Breakdown -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-mono text-[11px] font-semibold uppercase text-[#171717]">
                 Tax Exemption (Sec 10(10))
               </span>
-              <span class="font-mono text-[11px] text-[#8f8f8f]">Limit: ₹20 Lakh</span>
+              <span class="font-mono text-[10px] text-[#8f8f8f]">Cap: ₹20L</span>
             </div>
 
-            <!-- Segmented Progress Bar -->
-            <div class="w-full h-3 bg-[#f0f0f0] rounded-full overflow-hidden flex">
+            <!-- Segmented Bar -->
+            <div class="w-full h-2.5 bg-[#f0f0f0] rounded-full overflow-hidden flex">
               <div id="bar-tax-free" class="bg-[#171717] h-full transition-all duration-300" style="width: 100%;"></div>
               <div id="bar-taxable" class="bg-rose-500 h-full transition-all duration-300" style="width: 0%;"></div>
             </div>
 
-            <!-- Details: Tax Free vs Taxable -->
-            <div class="grid grid-cols-2 gap-3 pt-1">
-              <div class="p-3 bg-[#fafafa] border border-[#ebebeb] rounded-lg">
-                <span class="text-[11px] text-[#8f8f8f] block mb-0.5">Tax-Free Amount</span>
-                <span id="tax-free-val" class="font-mono font-bold text-sm text-emerald-700">₹3,46,154</span>
-                <span class="block text-[10px] text-emerald-600 font-medium mt-0.5">100% Exempt</span>
+            <div class="grid grid-cols-2 gap-2 text-xs pt-1">
+              <div class="p-2.5 bg-[#fafafa] border border-[#ebebeb] rounded-md">
+                <span class="text-[10px] text-[#8f8f8f] block">Tax-Free (Exempt)</span>
+                <span id="tax-free-val" class="font-mono font-bold text-xs text-emerald-700">₹3,46,154</span>
               </div>
-              <div class="p-3 bg-[#fafafa] border border-[#ebebeb] rounded-lg">
-                <span class="text-[11px] text-[#8f8f8f] block mb-0.5">Taxable Component</span>
-                <span id="taxable-val" class="font-mono font-bold text-sm text-[#171717]">₹0</span>
-                <span class="block text-[10px] text-[#8f8f8f] font-medium mt-0.5">Subject to slab</span>
+              <div class="p-2.5 bg-[#fafafa] border border-[#ebebeb] rounded-md">
+                <span class="text-[10px] text-[#8f8f8f] block">Taxable Portion</span>
+                <span id="taxable-val" class="font-mono font-bold text-xs text-[#171717]">₹0</span>
               </div>
             </div>
           </div>
 
-          <!-- Formula Substitution Display -->
-          <div class="mt-5 p-3.5 bg-[#f9f9f9] border border-[#ebebeb] rounded-lg space-y-1.5">
-            <div class="flex items-center justify-between text-[11px] font-mono text-[#8f8f8f]">
-              <span>CALCULATION STEP</span>
+          <!-- Live Formula Substitution -->
+          <div class="mt-4 p-2.5 bg-[#f9f9f9] border border-[#ebebeb] rounded-md text-[11px] font-mono space-y-0.5">
+            <div class="flex justify-between text-[#8f8f8f] text-[10px]">
+              <span>FORMULA</span>
               <span id="formula-label">15 × Salary × Years ÷ 26</span>
             </div>
-            <p id="formula-substitution" class="font-mono text-xs font-semibold text-[#171717] break-all">
+            <p id="formula-substitution" class="text-[#171717] font-medium truncate">
               (15 × 60,000 × 10) ÷ 26 = ₹3,46,154
             </p>
           </div>
 
-          <!-- Key Metrics Grid -->
-          <div class="mt-4 grid grid-cols-2 gap-2 text-xs">
-            <div class="py-1 px-2 bg-white rounded border border-[#f0f0f0] flex justify-between">
-              <span class="text-[#8f8f8f]">Per Year Accrual:</span>
-              <span id="metric-per-year" class="font-mono font-medium text-[#171717]">₹34,615</span>
-            </div>
-            <div class="py-1 px-2 bg-white rounded border border-[#f0f0f0] flex justify-between">
-              <span class="text-[#8f8f8f]">Daily Wage Base:</span>
-              <span id="metric-daily-wage" class="font-mono font-medium text-[#171717]">₹2,308</span>
-            </div>
+          <!-- Accrual Rate -->
+          <div class="mt-3 flex justify-between text-[11px] py-1 px-2 bg-white rounded border border-[#f0f0f0]">
+            <span class="text-[#8f8f8f]">Per-Year Accrual:</span>
+            <span id="metric-per-year" class="font-mono font-medium text-[#171717]">₹34,615</span>
           </div>
 
-          <!-- Action Buttons -->
-          <div class="mt-6 flex flex-col sm:flex-row items-center gap-2.5">
+          <!-- Actions -->
+          <div class="mt-4 flex items-center gap-2">
             <button
               type="button"
               id="btn-print-statement"
-              class="w-full sm:flex-1 py-2.5 px-4 rounded-full bg-[#171717] text-white hover:bg-black font-medium text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
+              class="flex-1 py-2 px-3 rounded-full bg-[#171717] text-white hover:bg-black font-medium text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-xs"
             >
               <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 6 2 18 2 18 9"></polyline>
                 <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
                 <rect x="6" y="14" width="12" height="8"></rect>
               </svg>
-              Print / Save PDF
+              Print / PDF
             </button>
             <button
               type="button"
               id="btn-copy-summary"
-              class="w-full sm:w-auto py-2.5 px-4 rounded-full border border-[#ebebeb] bg-white text-[#171717] hover:bg-[#f5f5f5] font-medium text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+              class="py-2 px-3 rounded-full border border-[#ebebeb] bg-white text-[#171717] hover:bg-[#f5f5f5] font-medium text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer"
             >
               <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
               </svg>
-              <span id="copy-btn-label">Copy Summary</span>
+              <span id="copy-btn-label">Copy</span>
             </button>
           </div>
 
-        </div>
-
-        <!-- Trust & Law Fact Card -->
-        <div class="bg-white border border-[#ebebeb] rounded-xl p-4 text-xs text-[#4d4d4d] space-y-1.5">
-          <div class="flex items-center gap-1.5 font-medium text-[#171717]">
-            <svg class="w-3.5 h-3.5 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-            Statutory Legal Protections
-          </div>
-          <p class="text-[11px] text-[#8f8f8f] leading-relaxed">
-            Gratuity cannot be attached by any court decree or debt recovery under Section 13 of the Payment of Gratuity Act 1972. It is guaranteed money owed for your service.
-          </p>
         </div>
 
       </div>
 
     </div>
 
-    <!-- Career Milestone Accumulation Matrix (Unique Feature that blows away Groww) -->
-    <div id="growth-matrix" class="mt-14 bg-white border border-[#ebebeb] rounded-xl p-6 sm:p-8 shadow-xs">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+    <!-- Career Milestones Table -->
+    <div id="growth-matrix" class="mt-10 bg-white border border-[#ebebeb] rounded-xl p-5 sm:p-6 shadow-xs">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
         <div>
-          <span class="font-mono text-xs font-semibold uppercase text-[#8f8f8f] tracking-wider block mb-1">
-            CAREER ROADMAP &amp; FUTURE WEALTH
+          <span class="font-mono text-[10px] font-semibold uppercase text-[#8f8f8f] tracking-wider block">
+            CAREER PROJECTION
           </span>
-          <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-[#171717]">
-            Gratuity Accumulation Milestone Forecast
+          <h2 class="text-base sm:text-lg font-semibold tracking-tight text-[#171717]">
+            Gratuity Milestones with <span id="matrix-hike-label">8%</span> Annual Hike
           </h2>
-          <p class="text-xs text-[#4d4d4d] mt-1">
-            Comparing static basic salary with a projected <span id="matrix-hike-label" class="font-semibold text-[#171717]">8%</span> annual increment across your career.
-          </p>
         </div>
-        <div class="flex items-center gap-2">
-          <span class="inline-flex items-center gap-1.5 text-xs text-[#8f8f8f] font-mono">
-            <span class="w-2 h-2 rounded-full bg-blue-500"></span> With Hike
-          </span>
-          <span class="inline-flex items-center gap-1.5 text-xs text-[#8f8f8f] font-mono ml-2">
-            <span class="w-2 h-2 rounded-full bg-[#171717]"></span> Fixed Salary
-          </span>
+        <div class="flex items-center gap-3 text-xs text-[#8f8f8f] font-mono">
+          <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-500"></span> With Hike</span>
+          <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-[#171717]"></span> Fixed</span>
         </div>
       </div>
 
-      <!-- Forecast Table -->
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs">
           <thead>
-            <tr class="border-b border-[#ebebeb] text-[#8f8f8f] font-mono uppercase text-[11px]">
-              <th class="py-3 px-3">Service Milestone</th>
-              <th class="py-3 px-3">Projected Monthly Basic</th>
-              <th class="py-3 px-3">Gratuity (Static Salary)</th>
-              <th class="py-3 px-3">Gratuity (With Increments)</th>
-              <th class="py-3 px-3">Tax Status</th>
+            <tr class="border-b border-[#ebebeb] text-[#8f8f8f] font-mono uppercase text-[10px]">
+              <th class="py-2.5 px-3">Tenure</th>
+              <th class="py-2.5 px-3">Projected Salary</th>
+              <th class="py-2.5 px-3">Fixed Salary</th>
+              <th class="py-2.5 px-3 text-blue-600">With Increments</th>
+              <th class="py-2.5 px-3">Tax Status</th>
             </tr>
           </thead>
           <tbody id="projection-table-body" class="divide-y divide-[#f0f0f0]">
-            <!-- Populated via JavaScript dynamically -->
+            <!-- Dynamic rows -->
           </tbody>
         </table>
       </div>
@@ -506,9 +410,8 @@
 <!-- Client Script for Interactive Engine -->
 <script is:inline>
   (function() {
-    // State
     const state = {
-      category: 'covered', // 'covered', 'not-covered', 'govt'
+      category: 'covered',
       salary: 60000,
       years: 10,
       months: 0,
@@ -518,7 +421,6 @@
       annualHike: 8
     };
 
-    // DOM Elements
     const tabCovered = document.getElementById('tab-covered');
     const tabNotCovered = document.getElementById('tab-not-covered');
     const tabGovt = document.getElementById('tab-govt');
@@ -555,7 +457,6 @@
     const formulaLabel = document.getElementById('formula-label');
     const formulaSubstitution = document.getElementById('formula-substitution');
     const metricPerYear = document.getElementById('metric-per-year');
-    const metricDailyWage = document.getElementById('metric-daily-wage');
     
     const projectionTableBody = document.getElementById('projection-table-body');
     const matrixHikeLabel = document.getElementById('matrix-hike-label');
@@ -570,7 +471,6 @@
     const copyBtnLabel = document.getElementById('copy-btn-label');
     const btnPrintStatement = document.getElementById('btn-print-statement');
 
-    // Indian Number Formatter
     function formatINR(number) {
       if (isNaN(number)) return "0";
       return new Intl.NumberFormat('en-IN', {
@@ -578,11 +478,9 @@
       }).format(Math.round(number));
     }
 
-    // Number to Words in Indian numbering system
     function numberToWordsINR(num) {
       if (!num || num === 0) return 'Zero Rupees';
       num = Math.round(num);
-      
       const a = ['', 'One ', 'Two ', 'Three ', 'Four ', 'Five ', 'Six ', 'Seven ', 'Eight ', 'Nine ', 'Ten ', 'Eleven ', 'Twelve ', 'Thirteen ', 'Fourteen ', 'Fifteen ', 'Sixteen ', 'Seventeen ', 'Eighteen ', 'Nineteen '];
       const b = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
 
@@ -617,49 +515,42 @@
       return (res.trim() + ' Rupees');
     }
 
-    // Compute Effective Tenure based on law
     function getEffectiveTenure() {
       const y = state.years;
       const m = state.months;
       
       if (state.category === 'covered') {
-        // Covered Act: > 6 months rounds up to 1 year
         const effective = m > 6 ? (y + 1) : y;
         return {
           effectiveYears: effective,
           roundingNote: m > 6 
-            ? `Service of ${y} yrs ${m} mos (>6 mos) rounds up to ${effective} years under the Gratuity Act.`
-            : `Service of ${y} yrs ${m} mos (≤6 mos) is counted as ${effective} completed years.`
+            ? `Service of ${y} yrs ${m} mos (>6 mos) rounds up to <strong>${effective} years</strong>.`
+            : `Service of ${y} yrs ${m} mos is counted as <strong>${effective} completed years</strong>.`
         };
       } else if (state.category === 'not-covered') {
-        // Not covered: Only completed full years are counted
         return {
           effectiveYears: y,
           roundingNote: m > 0 
-            ? `Under non-covered rules, fractional months (${m} mos) are ignored. Only ${y} completed years are counted.`
-            : `Exact completed service of ${y} years counted.`
+            ? `Non-covered: fractional months (${m} mos) ignored; <strong>${y} completed years</strong> counted.`
+            : `Exact completed service of <strong>${y} years</strong> counted.`
         };
       } else {
-        // Government
         const effective = m >= 6 ? (y + 1) : y;
         return {
           effectiveYears: effective,
-          roundingNote: `Government service of ${y} yrs ${m} mos rounds to ${effective} years.`
+          roundingNote: `Government service rounds to <strong>${effective} years</strong>.`
         };
       }
     }
 
-    // Main Calculator logic
     function calculate() {
       const { effectiveYears, roundingNote } = getEffectiveTenure();
       
-      // Update tenure UI
       yearsDisplay.textContent = `${state.years} yrs`;
       monthsDisplay.textContent = `${state.months} mos`;
       effectiveYearsBadge.textContent = `Effective: ${effectiveYears} Years`;
       roundingExplanation.innerHTML = roundingNote;
 
-      // Check 5-year eligibility
       const isEligible = (state.years >= 5) || state.rule240Days || state.ruleDisablement;
       actualTenureStr.textContent = `${state.years} yrs ${state.months} mos`;
 
@@ -674,89 +565,56 @@
         resultStatusBadge.textContent = "Eligible";
       } else {
         resultStatusBadge.className = "font-mono text-[10px] px-2 py-0.5 bg-amber-50 text-amber-700 border border-amber-200 rounded font-semibold uppercase";
-        resultStatusBadge.textContent = "Tenure < 5 Yrs";
+        resultStatusBadge.textContent = "< 5 Yrs";
       }
 
       let gratuity = 0;
       let formulaText = "";
       let formulaStep = "";
-      let dailyWage = 0;
 
       if (state.category === 'covered') {
-        // G = (15 * Salary * N) / 26
-        dailyWage = state.salary / 26;
         gratuity = (15 * state.salary * effectiveYears) / 26;
         formulaText = "15 × Salary × Years ÷ 26";
         formulaStep = `(15 × ₹${formatINR(state.salary)} × ${effectiveYears}) ÷ 26 = ₹${formatINR(gratuity)}`;
       } else if (state.category === 'not-covered') {
-        // G = (15 * Salary * N) / 30 = 0.5 * Salary * N
-        dailyWage = state.salary / 30;
         gratuity = (15 * state.salary * effectiveYears) / 30;
-        formulaText = "15 × 10-mo Avg Salary × Completed Years ÷ 30";
+        formulaText = "15 × Salary × Years ÷ 30";
         formulaStep = `(15 × ₹${formatINR(state.salary)} × ${effectiveYears}) ÷ 30 = ₹${formatINR(gratuity)}`;
       } else {
-        // Govt: 1/4 of a month's emoluments for each completed 6-monthly period (approx 15/26 or 16.5 months ceiling)
-        dailyWage = state.salary / 26;
         gratuity = (15 * state.salary * effectiveYears) / 26;
-        formulaText = "Government Pension Formula (15/26)";
+        formulaText = "Govt Formula (15/26)";
         formulaStep = `(15 × ₹${formatINR(state.salary)} × ${effectiveYears}) ÷ 26 = ₹${formatINR(gratuity)}`;
       }
 
-      // If user provided override for actual gratuity received
       const actualReceived = (state.actualGratuityOverride && state.actualGratuityOverride > 0)
         ? state.actualGratuityOverride
         : gratuity;
 
-      // Tax exemption limits under Section 10(10)
-      // Covered & Non-covered: Statutory ceiling is 20 Lakhs (20,00,000)
-      // Govt: 100% exempt up to 25 Lakhs
-      let statutoryLimit = 2000000;
-      if (state.category === 'govt') statutoryLimit = 2500000;
+      let statutoryLimit = state.category === 'govt' ? 2500000 : 2000000;
+      let taxFreeAmount = Math.min(actualReceived, statutoryLimit, gratuity);
+      let taxableAmount = Math.max(0, actualReceived - taxFreeAmount);
 
-      let taxFreeAmount = 0;
-      let taxableAmount = 0;
-
-      if (state.category === 'govt') {
-        taxFreeAmount = Math.min(actualReceived, statutoryLimit);
-        taxableAmount = Math.max(0, actualReceived - taxFreeAmount);
-      } else {
-        // Section 10(10): Least of:
-        // 1. Actual received
-        // 2. Statutory limit (20,00,000)
-        // 3. Formula calculated amount
-        const eligibleExempt = Math.min(actualReceived, statutoryLimit, gratuity);
-        taxFreeAmount = eligibleExempt;
-        taxableAmount = Math.max(0, actualReceived - taxFreeAmount);
-      }
-
-      // Update primary displays
       resultGratuity.textContent = formatINR(gratuity);
       resultInWords.textContent = numberToWordsINR(gratuity);
 
       taxFreeVal.textContent = `₹${formatINR(taxFreeAmount)}`;
       taxableVal.textContent = `₹${formatINR(taxableAmount)}`;
 
-      // Update bar widths
       const totalAmountForBar = Math.max(actualReceived, 1);
       const taxFreePct = Math.min(100, Math.max(0, (taxFreeAmount / totalAmountForBar) * 100));
       const taxablePct = 100 - taxFreePct;
       barTaxFree.style.width = `${taxFreePct}%`;
       barTaxable.style.width = `${taxablePct}%`;
 
-      // Update formula
       formulaLabel.textContent = formulaText;
       formulaSubstitution.textContent = formulaStep;
 
-      // Update metrics
       const perYearAccrual = effectiveYears > 0 ? (gratuity / effectiveYears) : 0;
       metricPerYear.textContent = `₹${formatINR(perYearAccrual)}`;
-      metricDailyWage.textContent = `₹${formatINR(dailyWage)}`;
 
-      // Render Career Milestones Table
       renderMilestones(state.salary, state.annualHike);
     }
 
-    // Render Milestone Forecast Table
     function renderMilestones(currentSalary, hikePct) {
       if (!projectionTableBody) return;
       matrixHikeLabel.textContent = `${hikePct}%`;
@@ -765,25 +623,16 @@
       let html = '';
 
       milestones.forEach(mYears => {
-        // Static salary calculation
-        let staticGratuity = 0;
-        if (state.category === 'covered' || state.category === 'govt') {
-          staticGratuity = (15 * currentSalary * mYears) / 26;
-        } else {
-          staticGratuity = (15 * currentSalary * mYears) / 30;
-        }
+        let staticGratuity = (state.category === 'not-covered')
+          ? (15 * currentSalary * mYears) / 30
+          : (15 * currentSalary * mYears) / 26;
 
-        // Project salary with compound interest: S_n = S_0 * (1 + r)^n
-        // Assume current tenure is state.years, so extra years to milestone = max(0, mYears - state.years)
         const yearsToMilestone = Math.max(0, mYears - 1);
         const projectedSalary = currentSalary * Math.pow(1 + (hikePct / 100), yearsToMilestone);
 
-        let hikedGratuity = 0;
-        if (state.category === 'covered' || state.category === 'govt') {
-          hikedGratuity = (15 * projectedSalary * mYears) / 26;
-        } else {
-          hikedGratuity = (15 * projectedSalary * mYears) / 30;
-        }
+        let hikedGratuity = (state.category === 'not-covered')
+          ? (15 * projectedSalary * mYears) / 30
+          : (15 * projectedSalary * mYears) / 26;
 
         const isCurrentRange = (state.years >= mYears - 2 && state.years <= mYears + 2);
         const trClass = isCurrentRange ? "bg-[#f5f5f5]/80 font-medium" : "hover:bg-[#fafafa]";
@@ -791,24 +640,23 @@
         const isCapped = hikedGratuity > 2000000 && state.category !== 'govt';
         const taxBadge = isCapped 
           ? `<span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-rose-50 text-rose-700 border border-rose-200">Exceeds ₹20L</span>`
-          : `<span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-700 border border-emerald-200">100% Tax-Free</span>`;
+          : `<span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-700 border border-emerald-200">Exempt</span>`;
 
         html += `
           <tr class="${trClass}">
-            <td class="py-3 px-3">
-              <span class="font-mono font-semibold text-[#171717]">${mYears} Years</span>
-              ${isCurrentRange ? '<span class="ml-1 text-[10px] text-blue-600 font-mono">(Near You)</span>' : ''}
+            <td class="py-2.5 px-3 font-mono font-semibold text-[#171717]">
+              ${mYears} Yrs ${isCurrentRange ? '<span class="text-[9px] text-blue-600 font-sans ml-1">(You)</span>' : ''}
             </td>
-            <td class="py-3 px-3 font-mono text-[#4d4d4d]">
+            <td class="py-2.5 px-3 font-mono text-[#4d4d4d]">
               ₹${formatINR(projectedSalary)}
             </td>
-            <td class="py-3 px-3 font-mono text-[#171717]">
+            <td class="py-2.5 px-3 font-mono text-[#171717]">
               ₹${formatINR(staticGratuity)}
             </td>
-            <td class="py-3 px-3 font-mono font-semibold text-blue-600">
+            <td class="py-2.5 px-3 font-mono font-semibold text-blue-600">
               ₹${formatINR(hikedGratuity)}
             </td>
-            <td class="py-3 px-3">
+            <td class="py-2.5 px-3">
               ${taxBadge}
             </td>
           </tr>
@@ -818,22 +666,21 @@
       projectionTableBody.innerHTML = html;
     }
 
-    // Event Listeners for Tabs
     function setCategory(cat) {
       state.category = cat;
       [tabCovered, tabNotCovered, tabGovt].forEach(btn => {
-        btn.className = "category-tab py-2.5 px-3 text-xs font-medium rounded-md transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] font-sans";
+        btn.className = "category-tab py-2 px-2 text-xs font-medium rounded-md transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717]";
       });
 
       if (cat === 'covered') {
-        tabCovered.className = "category-tab py-2.5 px-3 text-xs font-medium rounded-md transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs font-sans";
-        categoryDesc.textContent = "Applies to private establishments, factories, mines, ports, and shops with 10+ employees. Uses 26 working days per month with rounding above 6 months.";
+        tabCovered.className = "category-tab py-2 px-2 text-xs font-medium rounded-md transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs";
+        categoryDesc.textContent = "Covered under Act (26 days base)";
       } else if (cat === 'not-covered') {
-        tabNotCovered.className = "category-tab py-2.5 px-3 text-xs font-medium rounded-md transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs font-sans";
-        categoryDesc.textContent = "Applies to organizations not covered under the Gratuity Act. Uses 30 days per month (half-month salary per year). Fractional months are ignored.";
+        tabNotCovered.className = "category-tab py-2 px-2 text-xs font-medium rounded-md transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs";
+        categoryDesc.textContent = "Not Covered (30 days base)";
       } else {
-        tabGovt.className = "category-tab py-2.5 px-3 text-xs font-medium rounded-md transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs font-sans";
-        categoryDesc.textContent = "Central & State Government, Defense, and Local Authority employees. 100% exempt from income tax up to ₹25 Lakhs.";
+        tabGovt.className = "category-tab py-2 px-2 text-xs font-medium rounded-md transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs";
+        categoryDesc.textContent = "Government (100% Tax-Free up to ₹25L)";
       }
       calculate();
     }
@@ -842,7 +689,6 @@
     tabNotCovered.addEventListener('click', () => setCategory('not-covered'));
     tabGovt.addEventListener('click', () => setCategory('govt'));
 
-    // Salary Input & Slider synchronization
     salarySlider.addEventListener('input', (e) => {
       const val = parseInt(e.target.value, 10);
       state.salary = val;
@@ -854,17 +700,14 @@
       const raw = e.target.value.replace(/[^0-9]/g, '');
       const val = parseInt(raw, 10) || 0;
       state.salary = val;
-      if (val <= 500000) {
-        salarySlider.value = val;
-      }
+      if (val <= 500000) salarySlider.value = val;
       calculate();
     });
 
-    salaryInput.addEventListener('blur', (e) => {
+    salaryInput.addEventListener('blur', () => {
       salaryInput.value = formatINR(state.salary);
     });
 
-    // Preset salary chips
     presetSalaries.forEach(btn => {
       btn.addEventListener('click', () => {
         const val = parseInt(btn.getAttribute('data-val'), 10);
@@ -875,7 +718,6 @@
       });
     });
 
-    // Tenure sliders
     yearsSlider.addEventListener('input', (e) => {
       state.years = parseInt(e.target.value, 10);
       calculate();
@@ -886,7 +728,6 @@
       calculate();
     });
 
-    // Checkboxes
     check240Days.addEventListener('change', (e) => {
       state.rule240Days = e.target.checked;
       calculate();
@@ -897,7 +738,6 @@
       calculate();
     });
 
-    // Advanced inputs
     actualGratuityInput.addEventListener('input', (e) => {
       const val = parseFloat(e.target.value);
       state.actualGratuityOverride = isNaN(val) ? null : val;
@@ -910,7 +750,6 @@
       calculate();
     });
 
-    // CTC Helper Drawer
     toggleCtcHelper.addEventListener('click', () => {
       ctcHelperDrawer.classList.toggle('hidden');
     });
@@ -918,8 +757,7 @@
     function applyCtc(ratio) {
       const annual = parseFloat(helperCtcInput.value);
       if (!isNaN(annual) && annual > 0) {
-        const monthlyBasic = (annual * ratio) / 12;
-        state.salary = Math.round(monthlyBasic);
+        state.salary = Math.round((annual * ratio) / 12);
         salaryInput.value = formatINR(state.salary);
         salarySlider.value = Math.min(state.salary, 500000);
         calculate();
@@ -930,12 +768,8 @@
     applyCtc40.addEventListener('click', () => applyCtc(0.40));
     applyCtc50.addEventListener('click', () => applyCtc(0.50));
 
-    // Print & PDF
-    btnPrintStatement.addEventListener('click', () => {
-      window.print();
-    });
+    btnPrintStatement.addEventListener('click', () => window.print());
 
-    // Copy Summary
     btnCopySummary.addEventListener('click', async () => {
       const { effectiveYears } = getEffectiveTenure();
       const text = `Gratuity Calculation Summary (freegratuitycalculator.com)
@@ -951,13 +785,12 @@ Calculation Formula: ${formulaSubstitution.textContent}
 Generated at https://freegratuitycalculator.com`;
 
       await navigator.clipboard.writeText(text);
-      copyBtnLabel.textContent = "✓ Copied!";
+      copyBtnLabel.textContent = "✓ Copied";
       setTimeout(() => {
-        copyBtnLabel.textContent = "Copy Summary";
+        copyBtnLabel.textContent = "Copy";
       }, 2000);
     });
 
-    // Initial calculation on load
     calculate();
   })();
 </script>
