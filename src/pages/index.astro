@@ -14,16 +14,19 @@ import '../styles/global.css';
   description="Accurately compute gratuity payout, statutory tax exemptions (Section 10(10)), service tenure rounding, and future salary projections for employees covered and not covered under the Gratuity Act 1972."
 >
   <!-- Calm Ethereal Background with Subtle Mesh Aura and Delicate Dot Grid -->
-  <div class="relative min-h-screen flex flex-col">
+  <div class="relative min-h-screen flex flex-col w-full max-w-full overflow-x-hidden">
     
-    <!-- Background Calm Dot Grid Layer -->
-    <div class="calm-dot-grid absolute inset-0 pointer-events-none opacity-40 [mask-image:radial-gradient(ellipse_at_top,white_20%,transparent_75%)] -z-20"></div>
+    <!-- Background Layers Container (Strictly clipped to screen width) -->
+    <div class="absolute top-0 left-0 right-0 h-[600px] overflow-hidden pointer-events-none -z-10">
+      <!-- Background Calm Dot Grid Layer -->
+      <div class="calm-dot-grid absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_top,white_20%,transparent_75%)]"></div>
 
-    <!-- Soft Ambient Mesh Glow Layer (Hero Aura) -->
-    <div 
-      class="absolute top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[500px] opacity-20 pointer-events-none blur-[90px] -z-10"
-      style="background: radial-gradient(circle at 30% 25%, #007cf0 0%, transparent 45%), radial-gradient(circle at 50% 20%, #7928ca 0%, transparent 50%), radial-gradient(circle at 70% 30%, #50e3c2 0%, transparent 40%), radial-gradient(circle at 50% 70%, #00dfd8 0%, transparent 55%);"
-    ></div>
+      <!-- Soft Ambient Mesh Glow Layer (Hero Aura) -->
+      <div 
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[1100px] h-[450px] opacity-20 blur-[80px] sm:blur-[90px]"
+        style="background: radial-gradient(circle at 30% 25%, #007cf0 0%, transparent 45%), radial-gradient(circle at 50% 20%, #7928ca 0%, transparent 50%), radial-gradient(circle at 70% 30%, #50e3c2 0%, transparent 40%), radial-gradient(circle at 50% 70%, #00dfd8 0%, transparent 55%);"
+      ></div>
+    </div>
 
     <Header />
     <main class="flex-1">
