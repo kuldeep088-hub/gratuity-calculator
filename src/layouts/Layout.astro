@@ -22,6 +22,9 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonicalURL} />
     
+    <meta name="theme-color" content="#fafafa" />
+    <meta name="robots" content="index, follow" />
+    
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -65,6 +68,12 @@ const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astr
     </script>
   </head>
   <body class="bg-[#fafafa] text-[#171717] antialiased selection:bg-[#171717] selection:text-white min-h-screen flex flex-col font-sans">
+    <a
+      href="#calculator"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#171717] focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#171717] text-xs font-semibold tracking-wide uppercase transition-all"
+    >
+      Skip to calculator
+    </a>
     <slot />
   </body>
 </html>
