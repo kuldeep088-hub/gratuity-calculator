@@ -9,7 +9,7 @@ const {
   description = "Calculate gratuity payout for employees covered and not covered under the Payment of Gratuity Act 1972. Includes Section 10(10) tax exemption breakdown, tenure rounding rules, and instant PDF summary.",
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, "https://freegratuitycalculator.com");
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
 ---
 
 <!doctype html>
@@ -24,15 +24,15 @@ const canonicalURL = new URL(Astro.url.pathname, "https://freegratuitycalculator
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="keywords" content="gratuity calculator, online gratuity calculator india, covered under gratuity act, not covered under gratuity act, gratuity tax exemption section 10 10, gratuity formula 15 26, free gratuity calculator" />
-    <meta name="author" content="freegratuitycalculator.com" />
+    <meta name="keywords" content="gratuity calculator, online gratuity calculator india, covered under gratuity act, not covered under gratuity act, gratuity tax exemption section 10 10, gratuity formula 15 26" />
+    <meta name="author" content="Gratuity Calculator" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="Free Gratuity Calculator" />
+    <meta property="og:site_name" content="Gratuity Calculator" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -50,8 +50,7 @@ const canonicalURL = new URL(Astro.url.pathname, "https://freegratuitycalculator
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Free Gratuity Calculator India",
-        "url": "https://freegratuitycalculator.com",
+        "name": "Gratuity Calculator India",
         "description": "Calculate gratuity payout for employees covered and not covered under the Gratuity Act 1972 with Section 10(10) tax exemptions.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "All",
