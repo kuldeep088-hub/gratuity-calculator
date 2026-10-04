@@ -2,16 +2,16 @@
 // ComparisonTable.astro
 ---
 
-<section id="comparison" class="w-full py-8 sm:py-16 bg-white border-y border-[#ebebeb] overflow-hidden">
+<section id="comparison" class="w-full py-8 sm:py-16 bg-white border-y border-[#ebebeb] overflow-hidden scroll-mt-20">
   <div class="w-full max-w-6xl mx-auto px-3.5 sm:px-6">
     <div class="max-w-3xl mb-6 sm:mb-10">
       <div class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase text-[#8f8f8f] tracking-wider mb-2">
         <span>LEGAL COMPARISON MATRIX</span>
       </div>
-      <h2 class="text-xl sm:text-3xl font-semibold tracking-tight text-[#171717]">
+      <h2 class="text-xl sm:text-3xl font-semibold tracking-tight text-[#171717] text-balance">
         Covered vs. Not Covered under Gratuity Act
       </h2>
-      <p class="text-xs sm:text-sm text-[#4d4d4d] mt-1.5 leading-relaxed">
+      <p class="text-xs sm:text-sm text-[#4d4d4d] mt-1.5 leading-relaxed text-pretty">
         Understand the crucial legal distinctions between organizations governed by the Payment of Gratuity Act and those outside its purview.
       </p>
     </div>
@@ -23,7 +23,7 @@
 
       <!-- Responsive Table -->
       <div class="w-full max-w-full overflow-x-auto border border-[#ebebeb] rounded-xl shadow-2xs bg-white">
-        <table class="w-full text-left text-xs sm:text-sm min-w-[560px]">
+        <table class="w-full text-left text-xs sm:text-sm min-w-[560px]" aria-label="Covered vs Not Covered comparison matrix">
         <thead>
           <tr class="bg-[#fafafa] border-b border-[#ebebeb] font-mono text-xs text-[#171717]">
             <th class="py-4 px-4 sm:px-6 font-semibold w-1/4">Parameter</th>
