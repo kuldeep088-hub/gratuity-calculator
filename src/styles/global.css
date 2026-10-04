@@ -114,6 +114,13 @@ input[type="number"] {
 
 /* Print styling */
 @media print {
+  header,
+  footer,
+  #mobile-nav-drawer,
+  #ctc-helper-drawer,
+  #header-share-btn,
+  #btn-print-statement,
+  #btn-copy-summary,
   .no-print {
     display: none !important;
   }
@@ -122,5 +129,10 @@ input[type="number"] {
   }
   body {
     background: #ffffff !important;
+    color: #000000 !important;
+  }
+  #calculator {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
   }
 }
