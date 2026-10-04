@@ -66,7 +66,7 @@ const faqSchema = {
 };
 ---
 
-<section id="faqs" class="w-full py-8 sm:py-20 bg-white border-t border-[#ebebeb]">
+<section id="faqs" class="w-full py-8 sm:py-20 bg-white border-t border-[#ebebeb] scroll-mt-20">
   <div class="max-w-4xl mx-auto px-3.5 sm:px-6">
     
     <!-- Section Header -->
@@ -74,10 +74,10 @@ const faqSchema = {
       <div class="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase text-[#8f8f8f] tracking-wider mb-2">
         <span>LEGAL PRECEDENTS &amp; COMPLIANCE</span>
       </div>
-      <h2 class="text-xl sm:text-4xl font-semibold tracking-[-0.03em] text-[#171717] leading-tight">
+      <h2 class="text-xl sm:text-4xl font-semibold tracking-[-0.03em] text-[#171717] leading-tight text-balance">
         Frequently Asked Questions
       </h2>
-      <p class="text-xs sm:text-sm text-[#666] mt-1.5 leading-relaxed">
+      <p class="text-xs sm:text-sm text-[#666] mt-1.5 leading-relaxed text-pretty">
         Everything you need to know about the Payment of Gratuity Act 1972, Section 10(10) tax exemptions, and court rulings.
       </p>
     </div>
@@ -88,7 +88,7 @@ const faqSchema = {
         <details
           class="group border border-[#ebebeb] rounded-xl sm:rounded-2xl p-4 sm:p-5 bg-[#fafafa] open:bg-white open:shadow-xs transition-all duration-200"
         >
-          <summary class="flex items-center justify-between font-medium text-xs sm:text-base text-[#171717] cursor-pointer select-none">
+          <summary class="flex items-center justify-between font-medium text-xs sm:text-base text-[#171717] cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717] rounded-lg">
             <span class="flex items-center gap-2 sm:gap-3">
               <span class="font-mono text-[11px] sm:text-xs text-[#8f8f8f] shrink-0 font-normal">
                 {String(index + 1).padStart(2, '0')}.
