@@ -1,4 +1,4 @@
-# Gratuity Calculator (freegratuitycalculator.com)
+# Gratuity Calculator
 
 A high-precision gratuity calculation platform for Indian employees and HR teams, adhering strictly to the **Payment of Gratuity Act, 1972** and **Section 10(10)** of the Income Tax Act, 1961. Designed with the Vercel Geist aesthetic (`DESIGN.md`).
 
