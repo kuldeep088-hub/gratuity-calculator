@@ -2,8 +2,8 @@
 // ComparisonTable.astro
 ---
 
-<section id="comparison" class="w-full py-10 sm:py-16 bg-white border-y border-[#ebebeb]">
-  <div class="max-w-6xl mx-auto px-3.5 sm:px-6">
+<section id="comparison" class="w-full py-10 sm:py-16 bg-white border-y border-[#ebebeb] overflow-hidden">
+  <div class="w-full max-w-6xl mx-auto px-3.5 sm:px-6">
     <div class="max-w-3xl mb-10">
       <div class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase text-[#8f8f8f] tracking-wider mb-2">
         <span>LEGAL COMPARISON MATRIX</span>
@@ -22,7 +22,7 @@
       </div>
 
       <!-- Responsive Table -->
-      <div class="overflow-x-auto border border-[#ebebeb] rounded-xl shadow-2xs bg-white -mx-1 sm:mx-0">
+      <div class="w-full max-w-full overflow-x-auto border border-[#ebebeb] rounded-xl shadow-2xs bg-white">
         <table class="w-full text-left text-xs sm:text-sm min-w-[560px]">
         <thead>
           <tr class="bg-[#fafafa] border-b border-[#ebebeb] font-mono text-xs text-[#171717]">
