@@ -637,7 +637,6 @@
 
       const formattedGratuity = formatINR(gratuity);
       resultGratuity.textContent = formattedGratuity;
-      if (mobileFloatingAmount) mobileFloatingAmount.textContent = formattedGratuity;
       resultInWords.textContent = numberToWordsINR(gratuity);
 
       taxFreeVal.textContent = `₹${formatINR(taxFreeAmount)}`;
