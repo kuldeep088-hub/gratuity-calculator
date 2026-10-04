@@ -1,49 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#18181b"/>
-      <stop offset="100%" stop-color="#09090b"/>
-    </linearGradient>
-    <linearGradient id="screen" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#242428"/>
-      <stop offset="100%" stop-color="#141416"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0070f3"/>
-      <stop offset="100%" stop-color="#0052cc"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Outer Squircle Tile -->
-  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
-  <rect x="1" y="1" width="126" height="126" rx="27" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.5"/>
-
-  <!-- Calculator Screen (Visor) -->
-  <rect x="16" y="14" width="96" height="48" rx="10" fill="url(#screen)" stroke="#3f3f46" stroke-width="1"/>
-  
-  <!-- Rupee Vector Centered in Visor -->
-  <g transform="translate(64, 38) scale(0.42) translate(-60, -58)" fill="#ffffff">
-    <path d="M 38 18 H 82 V 25 H 63.8 C 66.8 28.5 68.6 33.2 69 38.5 H 82 V 45.5 H 68.8 C 67.2 55.2 59.5 62.5 49.5 63.5 L 75 98 H 61.5 L 37.5 65.5 V 58.5 H 49 C 55 58.5 60.2 54.2 61.5 45.5 H 38 V 38.5 H 61 C 60 31.8 55.2 26.8 49 25.5 H 38 V 18 Z"/>
-  </g>
-
-  <!-- Calculator Keypad (Row 1) -->
-  <rect x="16" y="70" width="28" height="20" rx="6" fill="#27272a" stroke="#3f3f46" stroke-width="0.8"/>
-  <path d="M 30 76 V 84 M 26 80 H 34" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round"/>
-
-  <rect x="50" y="70" width="28" height="20" rx="6" fill="#27272a" stroke="#3f3f46" stroke-width="0.8"/>
-  <path d="M 60 80 H 68" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round"/>
-
-  <rect x="84" y="70" width="28" height="20" rx="6" fill="#27272a" stroke="#3f3f46" stroke-width="0.8"/>
-  <path d="M 94 76 L 102 84 M 102 76 L 94 84" stroke="#a1a1aa" stroke-width="1.8" stroke-linecap="round"/>
-
-  <!-- Calculator Keypad (Row 2) -->
-  <rect x="16" y="96" width="28" height="20" rx="6" fill="#27272a" stroke="#3f3f46" stroke-width="0.8"/>
-  <path d="M 26 106 H 34 M 30 102 A 1 1 0 0 1 30 102.1 M 30 110 A 1 1 0 0 1 30 110.1" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round"/>
-
-  <rect x="50" y="96" width="28" height="20" rx="6" fill="#27272a" stroke="#3f3f46" stroke-width="0.8"/>
-  <text x="64" y="110" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#a1a1aa" text-anchor="middle">%</text>
-
-  <!-- Equal Key (Vibrant Accent) -->
-  <rect x="84" y="96" width="28" height="20" rx="6" fill="url(#accent)" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="0.8"/>
-  <path d="M 93 103 H 103 M 93 109 H 103" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <rect width="128" height="128" rx="30" fill="#171717"/>
+  <rect x="1" y="1" width="126" height="126" rx="29" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.5"/>
+  <path d="M 35 22 H 93 V 31.5 H 72 C 75.2 35.5 77.2 40.5 77.6 46 H 93 V 54.5 H 77.2 C 75.2 66 65.5 74.5 53 75.5 L 85 112 H 68.5 L 38 78 V 69.5 H 51.5 C 59.2 69.5 65.5 64 66.8 54.5 H 35 V 46 H 66.5 C 65.2 38.5 59 33 51.5 31.5 H 35 V 22 Z" fill="#ffffff"/>
 </svg>
