@@ -3,15 +3,15 @@
 // Mobile-Optimized, Calm & Spacious Gratuity Calculator adhering to DESIGN.md
 ---
 
-<section id="calculator" class="w-full pt-8 sm:pt-16 pb-12 sm:pb-20 overflow-hidden">
+<section id="calculator" class="w-full pt-8 sm:pt-16 pb-12 sm:pb-20 overflow-hidden scroll-mt-20">
   <div class="w-full max-w-5xl mx-auto px-3.5 sm:px-6">
     
     <!-- Hero / Headline -->
     <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-12">
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.04em] text-[#171717] leading-[1.08] mb-2 sm:mb-3">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.04em] text-[#171717] leading-[1.08] mb-2 sm:mb-3 text-balance">
         Gratuity Calculator
       </h1>
-      <p class="text-xs sm:text-base text-[#666] leading-relaxed max-w-lg mx-auto font-normal px-2">
+      <p class="text-xs sm:text-base text-[#666] leading-relaxed max-w-lg mx-auto font-normal px-2 text-pretty">
         A clear, accurate calculation for Covered & Non-Covered establishments with Section 10(10) tax exemptions.
       </p>
     </div>
@@ -33,11 +33,13 @@
                 Covered under Act (26 days base)
               </span>
             </div>
-            <div class="grid grid-cols-3 gap-1 p-1 bg-[#f5f5f5] rounded-xl border border-[#ebebeb]">
+            <div role="tablist" aria-label="Employment Category" class="grid grid-cols-3 gap-1 p-1 bg-[#f5f5f5] rounded-xl border border-[#ebebeb]">
               <button
                 type="button"
                 id="tab-covered"
-                class="category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs min-h-[42px] flex flex-col items-center justify-center"
+                role="tab"
+                aria-selected="true"
+                class="category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs min-h-[42px] flex flex-col items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]"
                 data-category="covered"
               >
                 <span class="leading-none">Covered</span>
@@ -46,7 +48,9 @@
               <button
                 type="button"
                 id="tab-not-covered"
-                class="category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] min-h-[42px] flex flex-col items-center justify-center"
+                role="tab"
+                aria-selected="false"
+                class="category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] min-h-[42px] flex flex-col items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]"
                 data-category="not-covered"
               >
                 <span class="leading-none">Not Covered</span>
@@ -55,7 +59,9 @@
               <button
                 type="button"
                 id="tab-govt"
-                class="category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] min-h-[42px] flex flex-col items-center justify-center"
+                role="tab"
+                aria-selected="false"
+                class="category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] min-h-[42px] flex flex-col items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]"
                 data-category="govt"
               >
                 <span class="leading-none">Govt</span>
@@ -78,7 +84,7 @@
               <button
                 type="button"
                 id="toggle-ctc-helper"
-                class="text-xs font-mono text-[#0070f3] hover:underline cursor-pointer flex items-center gap-1 py-1"
+                class="text-xs font-mono text-[#0070f3] hover:underline cursor-pointer flex items-center gap-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0070f3] rounded"
               >
                 CTC Splitter ▾
               </button>
@@ -101,14 +107,14 @@
                   <button
                     type="button"
                     id="apply-ctc-40"
-                    class="w-1/2 py-2 px-2 bg-white border border-[#ebebeb] rounded-lg text-xs font-medium hover:bg-[#f0f0f0] transition-colors min-h-[38px]"
+                    class="w-1/2 py-2 px-2 bg-white border border-[#ebebeb] rounded-lg text-xs font-medium hover:bg-[#f0f0f0] transition-colors min-h-[38px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]"
                   >
                     Use 40%
                   </button>
                   <button
                     type="button"
                     id="apply-ctc-50"
-                    class="w-1/2 py-2 px-2 bg-white border border-[#ebebeb] rounded-lg text-xs font-medium hover:bg-[#f0f0f0] transition-colors min-h-[38px]"
+                    class="w-1/2 py-2 px-2 bg-white border border-[#ebebeb] rounded-lg text-xs font-medium hover:bg-[#f0f0f0] transition-colors min-h-[38px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]"
                   >
                     Use 50%
                   </button>
@@ -118,13 +124,15 @@
 
             <!-- Salary Input + Slider (16px base text prevents mobile iOS zoom) -->
             <div class="relative">
-              <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8f8f8f] font-mono text-base font-semibold">₹</span>
+              <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8f8f8f] font-mono text-base font-semibold pointer-events-none">₹</span>
               <input
                 type="text"
                 id="salary-input"
                 inputmode="numeric"
+                autocomplete="off"
+                spellcheck="false"
                 value="60,000"
-                class="w-full pl-8 pr-4 py-2.5 text-base sm:text-lg font-semibold tracking-tight text-[#171717] bg-[#fafafa] border border-[#ebebeb] rounded-xl focus:outline-none focus:ring-1 focus:ring-[#171717] focus:bg-white transition-all min-h-[44px]"
+                class="w-full pl-8 pr-4 py-2.5 text-base sm:text-lg font-semibold tracking-tight text-[#171717] bg-[#fafafa] border border-[#ebebeb] rounded-xl focus:outline-none focus:ring-1 focus:ring-[#171717] focus:bg-white transition-all min-h-[44px] tabular-nums"
               />
             </div>
 
@@ -136,9 +144,12 @@
                 max="500000"
                 step="1000"
                 value="60000"
-                class="w-full py-1.5 cursor-pointer"
+                aria-label="Monthly Basic salary and Dearness Allowance"
+                aria-valuemin="10000"
+                aria-valuemax="500000"
+                class="w-full py-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]"
               />
-              <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f] mt-1">
+              <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f] mt-1 tabular-nums">
                 <span>₹10,000</span>
                 <span>₹2,50,000</span>
                 <span>₹5,00,000</span>
@@ -148,11 +159,11 @@
             <!-- Quick Presets (Single Row Horizontal Carousel on Mobile) -->
             <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 sm:flex-wrap">
               <span class="text-[11px] text-[#8f8f8f] shrink-0 mr-0.5">Presets:</span>
-              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px]" data-val="30000">₹30k</button>
-              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px]" data-val="50000">₹50k</button>
-              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px]" data-val="75000">₹75k</button>
-              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px]" data-val="100000">₹1L</button>
-              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px]" data-val="150000">₹1.5L</button>
+              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]" data-val="30000">₹30k</button>
+              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]" data-val="50000">₹50k</button>
+              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]" data-val="75000">₹75k</button>
+              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]" data-val="100000">₹1L</button>
+              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]" data-val="150000">₹1.5L</button>
             </div>
           </div>
 
@@ -167,7 +178,7 @@
                   Total completed service period.
                 </p>
               </div>
-              <span id="effective-years-badge" class="font-mono text-xs px-2.5 py-1 bg-[#f2f2f2] text-[#171717] rounded-lg font-semibold">
+              <span id="effective-years-badge" class="font-mono text-xs px-2.5 py-1 bg-[#f2f2f2] text-[#171717] rounded-lg font-semibold tabular-nums">
                 Effective: 10 Years
               </span>
             </div>
@@ -177,7 +188,7 @@
               <div class="p-2.5 sm:p-3 bg-[#fafafa] border border-[#ebebeb] rounded-xl space-y-1.5">
                 <div class="flex justify-between items-center text-xs">
                   <span class="text-[#4d4d4d] font-medium">Completed Years</span>
-                  <span id="years-display" class="font-mono font-bold text-sm text-[#171717]">10 yrs</span>
+                  <span id="years-display" class="font-mono font-bold text-sm text-[#171717] tabular-nums">10 yrs</span>
                 </div>
                 <input
                   type="range"
@@ -186,9 +197,12 @@
                   max="45"
                   step="1"
                   value="10"
-                  class="w-full py-1 cursor-pointer"
+                  aria-label="Completed service years"
+                  aria-valuemin="1"
+                  aria-valuemax="45"
+                  class="w-full py-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]"
                 />
-                <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f]">
+                <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f] tabular-nums">
                   <span>1 yr</span>
                   <span>45 yrs</span>
                 </div>
@@ -198,7 +212,7 @@
               <div class="p-2.5 sm:p-3 bg-[#fafafa] border border-[#ebebeb] rounded-xl space-y-1.5">
                 <div class="flex justify-between items-center text-xs">
                   <span class="text-[#4d4d4d] font-medium">Extra Months</span>
-                  <span id="months-display" class="font-mono font-bold text-sm text-[#171717]">0 mos</span>
+                  <span id="months-display" class="font-mono font-bold text-sm text-[#171717] tabular-nums">0 mos</span>
                 </div>
                 <input
                   type="range"
@@ -207,9 +221,12 @@
                   max="11"
                   step="1"
                   value="0"
-                  class="w-full py-1 cursor-pointer"
+                  aria-label="Extra months beyond completed years"
+                  aria-valuemin="0"
+                  aria-valuemax="11"
+                  class="w-full py-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#171717]"
                 />
-                <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f]">
+                <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f] tabular-nums">
                   <span>0 mos</span>
                   <span>11 mos</span>
                 </div>
