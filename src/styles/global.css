@@ -103,6 +103,15 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+/* Hide scrollbars for clean horizontal scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Print styling */
 @media print {
   .no-print {
