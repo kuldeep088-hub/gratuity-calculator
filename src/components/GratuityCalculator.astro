@@ -145,14 +145,14 @@
               </div>
             </div>
 
-            <!-- Quick Presets (Accessible touch targets) -->
-            <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
-              <span class="text-[11px] text-[#8f8f8f] mr-0.5">Presets:</span>
-              <button type="button" class="preset-salary text-[11px] font-mono px-2.5 py-1.5 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-md border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[32px]" data-val="30000">₹30k</button>
-              <button type="button" class="preset-salary text-[11px] font-mono px-2.5 py-1.5 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-md border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[32px]" data-val="50000">₹50k</button>
-              <button type="button" class="preset-salary text-[11px] font-mono px-2.5 py-1.5 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-md border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[32px]" data-val="75000">₹75k</button>
-              <button type="button" class="preset-salary text-[11px] font-mono px-2.5 py-1.5 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-md border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[32px]" data-val="100000">₹1 Lakh</button>
-              <button type="button" class="preset-salary text-[11px] font-mono px-2.5 py-1.5 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-md border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[32px]" data-val="150000">₹1.5 Lakh</button>
+            <!-- Quick Presets (Single Row Horizontal Carousel on Mobile) -->
+            <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 sm:flex-wrap">
+              <span class="text-[11px] text-[#8f8f8f] shrink-0 mr-0.5">Presets:</span>
+              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px]" data-val="30000">₹30k</button>
+              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px]" data-val="50000">₹50k</button>
+              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px]" data-val="75000">₹75k</button>
+              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px]" data-val="100000">₹1L</button>
+              <button type="button" class="preset-salary shrink-0 text-[11px] font-mono px-2.5 py-1 bg-[#f5f5f5] active:bg-[#e0e0e0] hover:bg-[#ebebeb] rounded-lg border border-[#e5e5e5] text-[#4d4d4d] transition-colors min-h-[30px]" data-val="150000">₹1.5L</button>
             </div>
           </div>
 
@@ -172,9 +172,9 @@
               </span>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4">
               <!-- Years -->
-              <div class="p-3 bg-[#fafafa] border border-[#ebebeb] rounded-xl space-y-1.5">
+              <div class="p-2.5 sm:p-3 bg-[#fafafa] border border-[#ebebeb] rounded-xl space-y-1.5">
                 <div class="flex justify-between items-center text-xs">
                   <span class="text-[#4d4d4d] font-medium">Completed Years</span>
                   <span id="years-display" class="font-mono font-bold text-sm text-[#171717]">10 yrs</span>
@@ -186,7 +186,7 @@
                   max="45"
                   step="1"
                   value="10"
-                  class="w-full py-1.5 cursor-pointer"
+                  class="w-full py-1 cursor-pointer"
                 />
                 <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f]">
                   <span>1 yr</span>
@@ -195,7 +195,7 @@
               </div>
 
               <!-- Months -->
-              <div class="p-3 bg-[#fafafa] border border-[#ebebeb] rounded-xl space-y-1.5">
+              <div class="p-2.5 sm:p-3 bg-[#fafafa] border border-[#ebebeb] rounded-xl space-y-1.5">
                 <div class="flex justify-between items-center text-xs">
                   <span class="text-[#4d4d4d] font-medium">Extra Months</span>
                   <span id="months-display" class="font-mono font-bold text-sm text-[#171717]">0 mos</span>
@@ -207,7 +207,7 @@
                   max="11"
                   step="1"
                   value="0"
-                  class="w-full py-1.5 cursor-pointer"
+                  class="w-full py-1 cursor-pointer"
                 />
                 <div class="flex justify-between text-[10px] font-mono text-[#8f8f8f]">
                   <span>0 mos</span>
@@ -217,10 +217,13 @@
             </div>
 
             <!-- Rounding rule status -->
-            <div id="rounding-alert-box" class="p-3 bg-[#fafafa] border border-[#ebebeb] rounded-xl text-xs text-[#4d4d4d] flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span id="rounding-explanation" class="text-[11px] sm:text-xs">
-                Service of 10 years 0 months counts as <strong>10 years</strong> for calculation.
-              </span>
+            <div id="rounding-alert-box" class="py-2 px-3 bg-[#fafafa] border border-[#ebebeb] rounded-xl text-xs text-[#4d4d4d] flex items-center justify-between gap-2">
+              <div class="flex items-center gap-1.5 min-w-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
+                <span id="rounding-explanation" class="text-[11px] text-[#4d4d4d] truncate">
+                  Service of 10 years 0 months counts as <strong>10 years</strong> for calculation.
+                </span>
+              </div>
               <span class="font-mono text-[9px] sm:text-[10px] text-[#8f8f8f] uppercase shrink-0">Statutory Rule</span>
             </div>
 
