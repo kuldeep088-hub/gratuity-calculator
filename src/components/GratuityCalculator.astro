@@ -712,17 +712,17 @@
     function setCategory(cat) {
       state.category = cat;
       [tabCovered, tabNotCovered, tabGovt].forEach(btn => {
-        btn.className = "category-tab py-2 sm:py-2.5 px-1 sm:px-3 text-[11px] sm:text-xs font-medium rounded-lg transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] min-h-[44px] flex flex-col items-center justify-center";
+        btn.className = "category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] min-h-[42px] flex flex-col items-center justify-center";
       });
 
       if (cat === 'covered') {
-        tabCovered.className = "category-tab py-2 sm:py-2.5 px-1 sm:px-3 text-[11px] sm:text-xs font-medium rounded-lg transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs min-h-[44px] flex flex-col items-center justify-center";
+        tabCovered.className = "category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs min-h-[42px] flex flex-col items-center justify-center";
         categoryDesc.textContent = "Covered under Act (26 days base)";
       } else if (cat === 'not-covered') {
-        tabNotCovered.className = "category-tab py-2 sm:py-2.5 px-1 sm:px-3 text-[11px] sm:text-xs font-medium rounded-lg transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs min-h-[44px] flex flex-col items-center justify-center";
+        tabNotCovered.className = "category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs min-h-[42px] flex flex-col items-center justify-center";
         categoryDesc.textContent = "Not Covered (30 days base)";
       } else {
-        tabGovt.className = "category-tab py-2 sm:py-2.5 px-1 sm:px-3 text-[11px] sm:text-xs font-medium rounded-lg transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs min-h-[44px] flex flex-col items-center justify-center";
+        tabGovt.className = "category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs min-h-[42px] flex flex-col items-center justify-center";
         categoryDesc.textContent = "Government (100% Tax-Free up to ₹25L)";
       }
       calculate();
