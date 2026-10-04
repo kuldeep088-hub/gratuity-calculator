@@ -7,21 +7,21 @@
   <div class="w-full max-w-5xl mx-auto px-3.5 sm:px-6">
     
     <!-- Hero / Headline -->
-    <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.04em] text-[#171717] leading-[1.08] mb-3">
+    <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-12">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.04em] text-[#171717] leading-[1.08] mb-2 sm:mb-3">
         Gratuity Calculator
       </h1>
       <p class="text-xs sm:text-base text-[#666] leading-relaxed max-w-lg mx-auto font-normal px-2">
-        A clear, accurate calculation for both Covered and Non-Covered establishments, with Section 10(10) tax exemptions.
+        A clear, accurate calculation for Covered & Non-Covered establishments with Section 10(10) tax exemptions.
       </p>
     </div>
 
     <!-- Master Calculator Container -->
-    <div class="w-full max-w-full bg-white/95 backdrop-blur-xl border border-[#ebebeb] rounded-2xl sm:rounded-3xl p-3.5 sm:p-7 lg:p-10 shadow-[0_8px_35px_rgba(0,0,0,0.03)] transition-all">
+    <div class="w-full max-w-full bg-white/95 backdrop-blur-xl border border-[#ebebeb] rounded-2xl sm:rounded-3xl p-4 sm:p-7 lg:p-10 shadow-[0_8px_35px_rgba(0,0,0,0.03)] transition-all">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
         
         <!-- Left Column: Inputs (7 cols) -->
-        <div class="lg:col-span-7 space-y-6 sm:space-y-7">
+        <div class="lg:col-span-7 space-y-5 sm:space-y-7">
           
           <!-- Category Segmented Control -->
           <div>
@@ -37,29 +37,29 @@
               <button
                 type="button"
                 id="tab-covered"
-                class="category-tab py-2 sm:py-2.5 px-1 sm:px-3 text-[11px] sm:text-xs font-medium rounded-lg transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs min-h-[44px] flex flex-col items-center justify-center"
+                class="category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer bg-white text-[#171717] shadow-2xs min-h-[42px] flex flex-col items-center justify-center"
                 data-category="covered"
               >
-                <span>Covered</span>
-                <span class="block text-[9px] sm:text-[10px] text-[#8f8f8f] font-mono">15/26 days</span>
+                <span class="leading-none">Covered</span>
+                <span class="block text-[9px] sm:text-[10px] text-[#8f8f8f] font-mono mt-0.5">15/26 days</span>
               </button>
               <button
                 type="button"
                 id="tab-not-covered"
-                class="category-tab py-2 sm:py-2.5 px-1 sm:px-3 text-[11px] sm:text-xs font-medium rounded-lg transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] min-h-[44px] flex flex-col items-center justify-center"
+                class="category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] min-h-[42px] flex flex-col items-center justify-center"
                 data-category="not-covered"
               >
-                <span>Not Covered</span>
-                <span class="block text-[9px] sm:text-[10px] text-[#8f8f8f] font-mono">15/30 days</span>
+                <span class="leading-none">Not Covered</span>
+                <span class="block text-[9px] sm:text-[10px] text-[#8f8f8f] font-mono mt-0.5">15/30 days</span>
               </button>
               <button
                 type="button"
                 id="tab-govt"
-                class="category-tab py-2 sm:py-2.5 px-1 sm:px-3 text-[11px] sm:text-xs font-medium rounded-lg transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] min-h-[44px] flex flex-col items-center justify-center"
+                class="category-tab py-2 sm:py-2.5 px-1.5 sm:px-3 text-xs font-medium rounded-lg transition-all text-center cursor-pointer text-[#4d4d4d] hover:text-[#171717] min-h-[42px] flex flex-col items-center justify-center"
                 data-category="govt"
               >
-                <span>Government</span>
-                <span class="block text-[9px] sm:text-[10px] text-[#8f8f8f] font-mono">Tax-Free</span>
+                <span class="leading-none">Govt</span>
+                <span class="block text-[9px] sm:text-[10px] text-[#8f8f8f] font-mono mt-0.5">Tax-Free</span>
               </button>
             </div>
           </div>
