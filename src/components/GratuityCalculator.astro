@@ -835,7 +835,7 @@
 
     btnCopySummary.addEventListener('click', async () => {
       const { effectiveYears } = getEffectiveTenure();
-      const text = `Gratuity Calculation Summary (freegratuitycalculator.com)
+      const text = `Gratuity Calculation Summary
 ----------------------------------------
 Employment Category: ${state.category.toUpperCase()}
 Monthly Salary (Basic+DA): ₹${formatINR(state.salary)}
@@ -844,8 +844,7 @@ Total Gratuity Payable: ₹${resultGratuity.textContent}
 Tax-Free Exemption (Sec 10(10)): ${taxFreeVal.textContent}
 Taxable Gratuity: ${taxableVal.textContent}
 Calculation Formula: ${formulaSubstitution.textContent}
-----------------------------------------
-Generated at https://freegratuitycalculator.com`;
+----------------------------------------`;
 
       await navigator.clipboard.writeText(text);
       copyBtnLabel.textContent = "✓ Copied";
