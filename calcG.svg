@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blueG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0070f3"/>
+      <stop offset="100%" stop-color="#00dfd8"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#171717"/>
+  <rect x="1" y="1" width="126" height="126" rx="27" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1.5"/>
+
+  <!-- Calculator outline -->
+  <!-- Top display with stylized G -->
+  <rect x="22" y="18" width="84" height="46" rx="10" fill="#222225" stroke="#333338" stroke-width="1"/>
+  <!-- Stylized G on display -->
+  <path d="M 72 32 C 67 27 60 25 52 25 C 38 25 28 35 28 50 C 28 65 38 75 52 75 C 64 75 72 68 74 58 H 52 V 50 H 83 V 58 C 80 74 68 83 52 83 C 33 83 19 69 19 50 C 19 31 33 17 52 17 C 63 17 73 21 80 28 Z" transform="translate(12, 10) scale(0.68)" fill="#ffffff"/>
+
+  <!-- Calculator 4-key minimalist grid -->
+  <rect x="22" y="74" width="38" height="34" rx="8" fill="#26262a"/>
+  <!-- Rupee sign on key 1 -->
+  <text x="41" y="93" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">₹</text>
+
+  <rect x="68" y="74" width="38" height="34" rx="8" fill="url(#blueG)"/>
+  <!-- Equals sign on key 2 -->
+  <path d="M 80 88 H 94 M 80 94 H 94" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
