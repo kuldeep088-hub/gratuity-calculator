@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="28" fill="#171717"/>
-  <rect x="1" y="1" width="126" height="126" rx="27" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.5"/>
-  <!-- Interlocking GC -->
-  <!-- "G" -->
-  <path d="M 64 26 C 43 26 26 43 26 64 C 26 85 43 102 64 102 C 81 102 95 91 100 76 H 64 V 62 H 114 V 64 C 114 91 91 114 64 114 C 36 114 14 91 14 64 C 14 36 36 14 64 14 C 84 14 101 26 109 43 L 96 50 C 90 36 78 26 64 26 Z" fill="#ffffff"/>
-  <!-- Rupee / Calc Crossbar across the top right -->
-  <rect x="52" y="38" width="44" height="8" rx="4" fill="#0070f3"/>
-</svg>
